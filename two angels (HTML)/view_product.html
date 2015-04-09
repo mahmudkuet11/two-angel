@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/paper.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Two Angels</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sell <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="new_voucher.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;New Voucher</a></li>
+			<li><a href="view_voucher.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;View Voucher</a></li>
+          </ul>
+        </li>
+		
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stock <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="add_new_product.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Add New Product</a></li>
+			<li class="divider"></li>
+            <li><a href="edit_product.html"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;Edit Product</a></li>
+            <li><a href="view_product.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;View Product</a></li>
+            <li><a href="delete_product.html"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Product</a></li>
+          </ul>
+        </li>
+		
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expense <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="expense.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Add New Expense</a></li>
+          </ul>
+        </li>
+		
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Report <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Demo menu item</a></li>
+          </ul>
+        </li>
+      </ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
+			  <ul class="dropdown-menu" role="menu">
+				<li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;Logout</a></li>
+			  </ul>
+			</li>
+		</ul>
+    </div>
+  </div>
+</nav>
+
+
+		<div class="container">
+			<div class="view_product_area">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<!-- <div class="input-group"> -->
+								<div class="col-md-3">
+									<select class="form-control" name="" id="">
+										<option value="">All</option>
+										<option value="">Search by Product Name</option>
+										<option value="">Search by Category</option>
+										<option value="">Search by Manufacturer</option>
+									</select>
+								</div>
+								<div class="col-md-9">
+									<input type="text" class="form-control" placeholder="enter keyword" />
+								</div>
+								<!-- </div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<table class="table table-striped table-hover ">
+								  <thead>
+									<tr>
+									  <th>Name</th>
+									  <th>Category</th>
+									  <th>Manufacturer</th>
+									  <th>Specification</th>
+									  <th>Purchase Price</th>
+									  <th>Sell's Rate</th>
+									  <th>In Stock</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+										<td>Lux</td>
+										<td>Soap</td>
+										<td>Uniliver</td>
+										<td>200</td>
+										<td>30</td>
+										<td>35</td>
+										<td>48</td>
+									</tr>
+									<tr>
+										<td>Lux</td>
+										<td>Soap</td>
+										<td>Uniliver</td>
+										<td>200</td>
+										<td>30</td>
+										<td>35</td>
+										<td>48</td>
+									</tr>
+									<tr>
+										<td>Lux</td>
+										<td>Soap</td>
+										<td>Uniliver</td>
+										<td>200</td>
+										<td>30</td>
+										<td>35</td>
+										<td>48</td>
+									</tr>
+									<tr>
+										<td>Lux</td>
+										<td>Soap</td>
+										<td>Uniliver</td>
+										<td>200</td>
+										<td>30</td>
+										<td>35</td>
+										<td>48</td>
+									</tr>
+									<tr>
+										<td>Lux</td>
+										<td>Soap</td>
+										<td>Uniliver</td>
+										<td>200</td>
+										<td>30</td>
+										<td>35</td>
+										<td>48</td>
+									</tr>
+									<tr>
+										<td>Lux</td>
+										<td>Soap</td>
+										<td>Uniliver</td>
+										<td>200</td>
+										<td>30</td>
+										<td>35</td>
+										<td>48</td>
+									</tr>
+								  </tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
