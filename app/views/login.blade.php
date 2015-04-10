@@ -12,10 +12,10 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/paper.css">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        {{ HTML::style('css/paper.css') }}
+        {{ HTML::style('css/normalize.css') }}
+        {{ HTML::style('css/main.css') }}
+        {{ HTML::script('js/vendor/modernizr-2.6.2.min.js') }}
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -28,24 +28,25 @@
 					<div class="col-md-6 col-md-offset-3">
 						<div class="panel panel-default">
 							<div class="panel-body">
-								<form class="form-horizontal">
+								<form class="form-horizontal" method="post" action="{{ URL::route('postLogin') }}">
 								  <fieldset>
 									<legend>Login</legend>
-									<div class="form-group">
+									<div class="form-group{{ Session::has('username_error') ? ' has-error' : '' }}">
 									  <label for="inputUsername" class="col-md-2 control-label">Username</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputUsername" placeholder="Username">
+										<input name="username" type="text" class="form-control" id="inputUsername" placeholder="Username" {{ Session::has('username_error') ? 'value="'.Session::get('username').'"' : '' }}>
+										@if(Session::has('username_error'))
+											<span class="text-danger">{{ Session::get('username_error') }}</span>
+										@endif
 									  </div>
 									</div>
-									<div class="form-group">
+									<div class="form-group{{ Session::has('password_error') ? ' has-error' : '' }}">
 									  <label for="inputPassword" class="col-md-2 control-label">Password</label>
 									  <div class="col-md-10">
-										<input type="password" class="form-control" id="inputPassword" placeholder="Password">
-										<div class="checkbox">
-										  <label>
-											<input type="checkbox"> Remember me
-										  </label>
-										</div>
+										<input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+										@if(Session::has('password_error'))
+											<span class="text-danger">{{ Session::get('password_error') }}</span>
+										@endif
 									  </div>
 									</div>
 									<div class="form-group">
@@ -63,10 +64,10 @@
 			</div>
 		</div>
 		
-        <script src="js/vendor/jquery-1.10.2.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
+        {{ HTML::script('js/bootstrap.min.js') }}
+        {{ HTML::script('js/plugins.js') }}
+        {{ HTML::script('js/main.js') }}
 
     </body>
 </html>
