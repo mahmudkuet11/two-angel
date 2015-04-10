@@ -49,6 +49,17 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'as'	=>	'getAddNewProduct',
 		'uses'	=>	'ProductController@getAddNewProduct'
 	));
+
+
+	Route::get('/category/add', array(
+			'as'	=>	'getAddNewCategory',
+			'uses'	=>	'CategoryController@getAddNewCategory'
+		));
+
+	Route::get('/supplier/add', array(
+			'as'	=>	'getAddNewSupplier',
+			'uses'	=>	'SupplierController@getAddNewSupplier'
+		));
 });
 
 
