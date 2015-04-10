@@ -91,6 +91,6 @@ Route::filter('csrf', function()
 
 Route::filter('login_required', function(){
 	if( !Session::has('user') ){
-		return Redirect::route('getLogin');
+		//return Redirect::route('getLogin');
 	}
 });

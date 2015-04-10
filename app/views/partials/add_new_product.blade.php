@@ -15,37 +15,29 @@
 									<div class="form-group">
 									  <label for="inputBarCode" class="col-md-2 control-label">Bar Code</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputBarCode" placeholder="Product Bar Code">
+										<input type="text" class="form-control" id="inputBarCode" placeholder="Bar code">
 									  </div>
 									</div>
 									<div class="form-group">
-									  <label for="inputProductName" class="col-md-2 control-label">Name</label>
+									  <label for="inputProductCategory" class="col-md-2 control-label">Name</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputProductName" placeholder="Product Name">
-									  </div>
-									</div>
-									<div class="form-group">
-									  <label for="inputProductCategory" class="col-md-2 control-label">Category</label>
-									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputProductCategory" placeholder="Product Category">
-									  </div>
-									</div>
-									<div class="form-group">
-									  <label for="inputProductManufacturer" class="col-md-2 control-label">Manufacturer</label>
-									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputProductManufacturer" placeholder="Product Manufacturer">
-									  </div>
-									</div>
-									<div class="form-group">
-									  <label for="inputProductSpecification" class="col-md-2 control-label">Specification</label>
-									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputProductSpecification" placeholder="Product Specification eg.Kg/L/gm">
+										<select name="" id="inputProductCategory" class="form-control">
+											<option value="">Select a category</option>
+											<option value="">option 1</option>
+											<option value="">option 2</option>
+											<option value="">option 3</option>
+										</select>
 									  </div>
 									</div>
 									<div class="form-group">
 									  <label for="inputSupplier" class="col-md-2 control-label">Supplier</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputSupplier" placeholder="Product Supplier">
+										<select name="" id="inputSupplier" class="form-control">
+											<option value="">Select Supplier</option>
+											<option value="">option 1</option>
+											<option value="">option 2</option>
+											<option value="">option 3</option>
+										</select>
 									  </div>
 									</div>
 									<div class="form-group">
@@ -55,15 +47,15 @@
 									  </div>
 									</div>
 									<div class="form-group">
-									  <label for="inputRate" class="col-md-2 control-label">Sell's Rate</label>
+									  <label for="inputRate" class="col-md-2 control-label">Sell's Price</label>
 									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputRate" placeholder="Sell's Rate">
+										<input type="number" class="form-control" id="inputRate" placeholder="Sell's Price">
 									  </div>
 									</div>
 									<div class="form-group">
-									  <label for="inputWarningQty" class="col-md-2 control-label">Warning Qty</label>
+									  <label for="inputDate" class="col-md-2 control-label">Date</label>
 									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputWarningQty" placeholder="Low Stock warning">
+										<input type="number" class="form-control" id="inputDate" placeholder="Date">
 									  </div>
 									</div>
 									<div class="form-group">

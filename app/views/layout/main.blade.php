@@ -12,10 +12,10 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/paper.css">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        {{ HTML::style('css/paper.css') }}
+        {{ HTML::style('css/normalize.css') }}
+        {{ HTML::style('css/main.css') }}
+        {{ HTML::script('js/vendor/modernizr-2.6.2.min.js') }}
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,10 +26,10 @@
 
       @yield('content')
 
-        <script src="js/vendor/jquery-1.10.2.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
+        {{ HTML::script('js/bootstrap.min.js') }}
+        {{ HTML::script('js/plugins.js') }}
+        {{ HTML::script('js/main.js') }}
 
     </body>
 </html>
