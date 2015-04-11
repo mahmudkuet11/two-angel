@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'two_angels',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '123456',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
