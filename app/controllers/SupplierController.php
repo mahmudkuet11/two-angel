@@ -6,8 +6,16 @@ class SupplierController extends BaseController{
 		return View::make('partials.add_new_supplier');
 	}
 	public function postAddNewSupplier(){
-		$category = Input::get("name");
-		$manufacturer = Input::get("phone");
-		$supplier = Input::get("address");
+		$name = Input::get("name");
+		$phone = Input::get("phone");
+		$address = Input::get("address");
+
+		DB::table('suppliers')->insert(
+   			 array(
+   			 	'name'			=> $name, 
+   			 	'phone'			=> $phone,
+   			 	'address'		=> $address
+   			 	)
+		);
 	}
 }

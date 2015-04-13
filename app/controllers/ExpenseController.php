@@ -1,14 +1,22 @@
 <?php
 
-class ProductController extends BaseController{
+class ExpenseController extends BaseController{
 
-	public function getAddNewProduct(){
-		return View::make('partials.add_new_product');
+	public function getAddNewExpense(){
+		return View::make('partials.add_new_expense');
 	}
-	public function postAddNewProduct(){
-		$barcode = Input::get("name");
-		$category = Input::get("note");
-		$manufacturer = Input::get("amount");
+	public function postAddNewExpense(){
+		$name = Input::get("name");
+		$note = Input::get("note");
+		$amount = Input::get("amount");
+
+		DB::table('expenses')->insert(
+   			 array(
+   			 	'name'			=> $name, 
+   			 	'note'			=> $note,
+   			 	'amount'		=> $amount
+   			 	)
+		);
 	}
 
 }
