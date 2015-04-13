@@ -6,13 +6,13 @@ class ProductController extends BaseController{
 		return View::make('partials.add_new_product');
 	}
 	public function postAddNewProduct(){
-		$barcode = Input::post("barcode");
-		$category = Input::post("category");
-		$manufacturer = Input::post("manufacturer");
-		$supplier = Input::post("suppllier");
-		$purchase_price = Input::post("purchase_price");
-		$sell_price = Input::post("sell_price");
-		$date = Input::post("date");
+		$barcode = Input::get("barcode");
+		$category = Input::get("category");
+		$manufacturer = Input::get("manufacturer");
+		$supplier = Input::get("suppllier");
+		$purchase_price = Input::get("purchase_price");
+		$sell_price = Input::get("sell_price");
+		$date = Input::get("date");
 	}
 
 }
