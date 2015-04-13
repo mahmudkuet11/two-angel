@@ -12,7 +12,7 @@ class CategoryController extends BaseController{
 		
 		DB::table('categories')->insert(
    			 array(
-   			 	'name'			=> $name, 
+   			 	'name'					=> $name, 
    			 	'manufacturer'			=> $manufacturer,
    			 	'warning_quantity'		=> $warning_quantity
    			 	)

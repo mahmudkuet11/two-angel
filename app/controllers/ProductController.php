@@ -21,6 +21,7 @@ class ProductController extends BaseController{
    			 	'sell_price' 		=> $sell_price
    			 	)
 		);
+		return Redirect::route("test");
 	}
 
 }
