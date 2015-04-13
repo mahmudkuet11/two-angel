@@ -23,9 +23,9 @@
 									  <div class="col-md-10">
 										<select name="" id="inputProductCategory" class="form-control">
 											<option value="">Select a category</option>
-											<option value="">option 1</option>
-											<option value="">option 2</option>
-											<option value="">option 3</option>
+											<option value="1">option 1</option>
+											<option value="2">option 2</option>
+											<option value="3">option 3</option>
 										</select>
 									  </div>
 									</div>
@@ -34,9 +34,9 @@
 									  <div class="col-md-10">
 										<select name="" id="inputSupplier" class="form-control">
 											<option value="">Select Supplier</option>
-											<option value="">option 1</option>
-											<option value="">option 2</option>
-											<option value="">option 3</option>
+											<option value="1">option 1</option>
+											<option value="2">option 2</option>
+											<option value="3">option 3</option>
 										</select>
 									  </div>
 									</div>
@@ -55,13 +55,13 @@
 									<div class="form-group">
 									  <label for="inputDate" class="col-md-2 control-label">Date</label>
 									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputDate" placeholder="Date">
+										<input type="number" class="form-control" id="inputDate" placeholder="Date" disabled>
 									  </div>
 									</div>
 									<div class="form-group">
 									  <div class="col-md-10 col-md-offset-2">
-										<button type="button" class="btn btn-primary">Clear</button>
-										<button type="button" class="btn btn-success">Add</button>
+										<button type="button" class="btn btn-primary" id="clear_btn_add_new_product">Clear</button>
+										<button type="button" class="btn btn-success" id="add_btn_add_new_product">Add</button>
 									  </div>
 									</div>
 								  </fieldset>
@@ -74,33 +74,12 @@
 						  <div class="panel-heading"><h2>Products to be added (10)</h2></div>
 						  <div class="panel-body">
 							<ul class="list-group" id="products_to_be_added_list">
-							  <li class="list-group-item">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Dapibus ac facilisis in
-							  </li>
-							  <li class="list-group-item">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Dapibus ac facilisis in
-							  </li>
-							  <li class="list-group-item">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Dapibus ac facilisis in
-							  </li>
-							  <li class="list-group-item">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Dapibus ac facilisis in
-							  </li>
-							  <li class="list-group-item">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Dapibus ac facilisis in
-							  </li>
-							  <li class="list-group-item">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Dapibus ac facilisis in
-							  </li>
+							  
+							{{-- Product list will be added here dynamically by javascript --}}
+
 							</ul>
 							
-							<button class="btn btn-primary">Confirm</button>
+							<button class="btn btn-primary" id="add_new_product_confirm_btn">Confirm</button>
 							
 						  </div>
 						</div>
