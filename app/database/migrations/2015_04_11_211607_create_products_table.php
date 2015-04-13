@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration {
 			$table->decimal("sell_price", 6, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->primary('barcode');
-		//	$table->foreign('category')->references('name')->on('categories')->onDelete('cascade');
 		});
 	}
 
