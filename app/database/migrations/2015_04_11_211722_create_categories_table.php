@@ -15,7 +15,7 @@ class CreateCategoriesTable extends Migration {
 		Schema::create("categories", function($table){
 			$table->string("name");
 			$table->string("manufacturer");
-			$table->integer("quantity");
+			$table->integer("quantity")->default(0);
 			$table->integer("warning_quantity");
 			$table->primary('name');
 		});

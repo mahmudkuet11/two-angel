@@ -13,12 +13,11 @@ class CreateExpensesTable extends Migration {
 	public function up()
 	{
 		Schema::create("expenses", function($table){
-			$table->integer("id");
+			$table->increments("id");
 			$table->string("name");
 			$table->string("note");
 			$table->decimal("amount", 6, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
-			$table->primary('id');
 		});
 	}
 
