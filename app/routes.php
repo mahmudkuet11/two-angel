@@ -64,7 +64,9 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
-
+Route::get('/test', function(){
+		return Redirect::route("/test/product");
+});
 Route::get('/test/product', array(
 		'as'	=>	'/test/product',
 		'uses'	=>	'TestController@getAddNewProduct'

@@ -13,10 +13,10 @@ class CreateSuppliersTable extends Migration {
 	public function up()
 	{
 		Schema::create("suppliers", function($table){
-			$table->increments("id");
 			$table->string("name");
 			$table->string("phone");
 			$table->string("address");
+			$table->primary('name');
 		});
 	}
 

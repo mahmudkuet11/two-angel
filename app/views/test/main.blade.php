@@ -24,12 +24,12 @@
 <body>
 	<div>
 		<ul>
+			<li><a href="{{ URL::route('/test/category') }}">Category</a></li>
+			<li><a href="{{ URL::route('/test/supplier') }}">Supplier</a></li>
 			<li><a href="{{ URL::route('/test/product') }}">Product</a></li>
 			<li><a href="{{ URL::route('/test/expense') }}">Expense</a></li>
+			<li><a href="{{ URL::route('/test/voucher') }}">Voucher</a></li>
 	    	 <li><a href="{{ URL::route('/test/order') }}">Order</a></li>
-			 <li><a href="{{ URL::route('/test/category') }}">Category</a></li>
-			 <li><a href="{{ URL::route('/test/supplier') }}">Supplier</a></li>
-		 	 <li><a href="{{ URL::route('/test/voucher') }}">Voucher</a></li>
 		</ul> 
 	</div>
 	<div>
