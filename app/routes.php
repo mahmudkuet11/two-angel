@@ -62,4 +62,19 @@ Route::group(array('before'	=>	'login_required'), function(){
 		));
 });
 
+Route::get('test1', function(){
+	return View::make('test1');
+});
+Route::post('test1', array(
+		'as'	=>	'test1',
+		'uses'	=>	'CategoryController@postAddNewCategory'
+	));
+
+Route::get('test', function(){
+	return View::make('test');
+});
+Route::post('test', array(
+		'as'	=>	'test',
+		'uses'	=>	'ProductController@postAddNewProduct'
+	));
 
