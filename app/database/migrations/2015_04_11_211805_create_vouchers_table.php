@@ -14,7 +14,6 @@ class CreateVouchersTable extends Migration {
 	{
 		Schema::create("vouchers", function($table){
 			$table->increments("id");
-			$table->string("products");
 			$table->string("customer_name");
 			$table->string("address");
 			$table->string("phone");
