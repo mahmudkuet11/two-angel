@@ -18,4 +18,5 @@ class CategoryController extends BaseController{
    			 	)
 		);
 	}
+
 }

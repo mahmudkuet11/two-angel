@@ -61,20 +61,59 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'uses'	=>	'SupplierController@getAddNewSupplier'
 		));
 });
+/*
+* -------------------Testting Suit----------
+*/
 
-Route::get('test1', function(){
-	return View::make('test1');
-});
-Route::post('test1', array(
-		'as'	=>	'test1',
-		'uses'	=>	'CategoryController@postAddNewCategory'
+Route::get('/test/product', array(
+		'as'	=>	'/test/product',
+		'uses'	=>	'TestController@getAddNewProduct'
+	));
+Route::post('/test/product', array(
+		'as'	=>	'/test/product',
+		'uses'	=>	'TestController@postAddNewProduct'
+	));
+Route::get('/test/voucher', array(
+		'as'	=>	'/test/voucher',
+		'uses'	=>	'TestController@getAddNewVoucher'
+	));
+Route::post('/test/voucher', array(
+		'as'	=>	'/test/voucher',
+		'uses'	=>	'TestController@postAddNewVoucher'
+	));
+Route::get('/test/expense', array(
+		'as'	=>	'/test/expense',
+		'uses'	=>	'TestController@getAddNewExpense'
+	));
+Route::post('/test/expense', array(
+		'as'	=>	'/test/expense',
+		'uses'	=>	'TestController@postAddNewExpense'
+	));
+Route::get('/test/order', array(
+		'as'	=>	'/test/order',
+		'uses'	=>	'TestController@getAddNewOrder'
+	));
+Route::post('/test/order', array(
+		'as'	=>	'/test/order',
+		'uses'	=>	'TestController@postAddNewOrder'
+	));
+Route::get('/test/supplier', array(
+		'as'	=>	'/test/supplier',
+		'uses'	=>	'TestController@getAddNewSupplier'
+	));
+Route::post('/test/supplier', array(
+		'as'	=>	'/test/supplier',
+		'uses'	=>	'TestController@postAddNewSupplier'
 	));
 
-Route::get('test', function(){
-	return View::make('test');
-});
-Route::post('test', array(
-		'as'	=>	'test',
-		'uses'	=>	'ProductController@postAddNewProduct'
+Route::get('/test/category', array(
+		'as'	=>	'/test/category',
+		'uses'	=>	'TestController@getAddNewCategory'
 	));
+Route::post('/test/category', array(
+		'as'	=>	'/test/category',
+		'uses'	=>	'TestController@postAddNewCategory'
+	));
+
+
 

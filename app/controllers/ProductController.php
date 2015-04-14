@@ -24,4 +24,5 @@ class ProductController extends BaseController{
 		return Redirect::route("test");
 	}
 
+
 }

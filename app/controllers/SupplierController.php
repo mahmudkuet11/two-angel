@@ -18,4 +18,5 @@ class SupplierController extends BaseController{
    			 	)
 		);
 	}
+
 }
