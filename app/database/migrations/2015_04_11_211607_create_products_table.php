@@ -20,6 +20,8 @@ class CreateProductsTable extends Migration {
 			$table->decimal("sell_price", 6, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->primary('barcode');
+
+
 		});
 	}
 
@@ -30,6 +32,7 @@ class CreateProductsTable extends Migration {
 	 */
 	public function down()
 	{
+
 		Schema::dropIfExists('products');
 
 	}

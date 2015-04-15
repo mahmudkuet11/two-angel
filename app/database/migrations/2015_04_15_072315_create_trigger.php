@@ -12,12 +12,13 @@ class CreateTrigger extends Migration {
 	 */
 	public function up()
 	{
-		     DB::unprepared('
+		//
+					 DB::unprepared('
              		 CREATE TRIGGER addProductIncreamentQuantity AFTER INSERT ON `products` FOR EACH ROW
                    		BEGIN
                        	UPDATE categories SET quantity = quantity +1 WHERE name = NEW.category;
                    		END
-                   ');
+                  ');
 	}
 
 	/**
@@ -27,7 +28,7 @@ class CreateTrigger extends Migration {
 	 */
 	public function down()
 	{
-		DB::unprepared('DROP TRIGGER `addProductIncreamentQuantity`');
+		 DB::unprepared('DROP TRIGGER `addProductIncreamentQuantity`');
 	}
 
 }
