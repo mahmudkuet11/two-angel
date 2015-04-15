@@ -77,6 +77,18 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'postAddNewSupplier',
 			'uses'	=>	'SupplierController@postAddNewSupplier'
 		));
+
+	/*
+	*	----- Expense Controller Routes
+	*/
+	Route::get('/expense/add', array(
+			'as'	=>	'getAddNewExpense',
+			'uses'	=>	'ExpenseController@getAddNewExpense'
+		));
+	Route::post('/expense/add', array(
+			'as'	=>	'postAddNewExpense',
+			'uses'	=>	'ExpenseController@postAddNewExpense'
+		));
 });
 /*
 * -------------------Testting Suit----------

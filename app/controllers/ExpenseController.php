@@ -17,7 +17,9 @@ class ExpenseController extends BaseController{
    			 	'amount'		=> $amount
    			 	)
 		);
-	}
 
+		return Redirect::route('getAddNewExpense')->with('msg', 'Expense has been added successfully');
+		
+	}
 
 }

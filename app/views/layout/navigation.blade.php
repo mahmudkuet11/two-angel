@@ -36,7 +36,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expense <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
 			<li><a href="purchase_cost.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Purchase Cost</a></li>
-            <li><a href="expense.html"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;&nbsp;Other Expense</a></li>
+            <li><a href="{{ URL::route('getAddNewExpense') }}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;&nbsp;Other Expense</a></li>
           </ul>
     </li>
 
