@@ -43,8 +43,8 @@
     <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href=""><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Add New Category</a></li>
-            <li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Add New Supplier</a></li>
+            <li><a href="{{ URL::route('getAddNewCategory') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Add New Category</a></li>
+            <li><a href="{{ URL::route('getAddNewSupplier') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Add New Supplier</a></li>
           </ul>
     </li>
 		

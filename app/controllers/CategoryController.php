@@ -5,6 +5,7 @@ class CategoryController extends BaseController{
 	public function getAddNewCategory(){
 		return View::make('partials.add_new_category');
 	}
+
 	public function postAddNewCategory(){
 		$name = Input::get("name");
 		$manufacturer = Input::get("manufacturer");
@@ -17,6 +18,8 @@ class CategoryController extends BaseController{
    			 	'warning_quantity'		=> $warning_quantity
    			 	)
 		);
+
+		return Redirect::route('getAddNewCategory')->with('msg', 'Category has been added successfully');
 	}
 
 }

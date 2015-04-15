@@ -54,15 +54,28 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'uses'	=>	'ProductController@postAddNewProduct'
 	));
 
-
+	/*
+	*	----- Category Controller Routes
+	*/
 	Route::get('/category/add', array(
 			'as'	=>	'getAddNewCategory',
 			'uses'	=>	'CategoryController@getAddNewCategory'
 		));
+	Route::post('/category/add', array(
+			'as'	=>	'postAddNewCategory',
+			'uses'	=>	'CategoryController@postAddNewCategory'
+		));
 
+	/*
+	*	----- Supplier Controller Routes
+	*/
 	Route::get('/supplier/add', array(
 			'as'	=>	'getAddNewSupplier',
 			'uses'	=>	'SupplierController@getAddNewSupplier'
+		));
+	Route::post('/supplier/add', array(
+			'as'	=>	'postAddNewSupplier',
+			'uses'	=>	'SupplierController@postAddNewSupplier'
 		));
 });
 /*
