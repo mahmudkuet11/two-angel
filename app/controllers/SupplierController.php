@@ -17,6 +17,8 @@ class SupplierController extends BaseController{
    			 	'address'		=> $address
    			 	)
 		);
+
+		return Redirect::route('getAddNewSupplier')->with('msg', 'Supplier has been added successfully');
 	}
 
 }

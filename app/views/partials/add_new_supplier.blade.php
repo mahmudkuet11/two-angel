@@ -12,31 +12,37 @@
 									<legend>Add New Supplier</legend>
 									<hr />
 
+									@if(Session::has('msg'))
+										<div class="alert alert-dismissible alert-success">
+										  <button type="button" class="close" data-dismiss="alert">×</button>
+										  {{ Session::get('msg') }}
+										</div>
+									@endif
+									
 									<div class="form-group">
 									  <label for="inputSupplierName" class="col-md-2 control-label">Supplier Name</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputSupplierName" placeholder="Enter Supplier Name">
+										<input type="text" name="name" class="form-control" id="inputSupplierName" placeholder="Enter Supplier Name">
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label for="inputSupplierPhone" class="col-md-2 control-label">Supplier Phone</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputSupplierPhone" placeholder="Enter Supplier Phone">
+										<input type="text" name="phone" class="form-control" id="inputSupplierPhone" placeholder="Enter Supplier Phone">
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label for="inputSupplierAddress" class="col-md-2 control-label">Supplier Address</label>
 									  <div class="col-md-10">
-										<textarea name="" id="inputSupplierAddress" class="form-control"></textarea>
+										<textarea name="address" id="inputSupplierAddress" class="form-control"></textarea>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <div class="col-md-10 col-md-offset-2">
-										<button type="button" class="btn btn-primary">Clear</button>
-										<button type="button" class="btn btn-success">Add</button>
+										<button type="submit" class="btn btn-success">Add Supplier</button>
 									  </div>
 									</div>
 
