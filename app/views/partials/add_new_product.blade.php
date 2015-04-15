@@ -12,6 +12,13 @@
 								  <fieldset>
 									<legend>Add New Products</legend>
 									<hr />
+									
+									@if(Session::has('msg'))
+										<div class="alert alert-dismissible alert-success">
+										  <button type="button" class="close" data-dismiss="alert">×</button>
+										  {{ Session::get('msg') }}
+										</div>
+									@endif
 
 									<div class="form-group">
 									  <label for="inputBarCode" class="col-md-2 control-label">Bar Code</label>
@@ -31,13 +38,16 @@
 									  <label for="inputProductCategory" class="col-md-2 control-label">Name</label>
 									  <div class="col-md-10">
 
-									  {{ $cat = Helper::getAllCategories() }}
+
 
 										<select name="category" id="inputProductCategory" class="form-control">
-											<option value="">Select a category</option>
-											<option value="1">option 1</option>
-											<option value="2">option 2</option>
-											<option value="3">option 3</option>
+										<option value="">Select a category</option>
+
+										@foreach (ProductHelper::getAllCategories() as $cat)
+
+											<option value="{{$cat}}">{{$cat}}</option>
+										@endforeach
+							
 										</select>
 									  </div>
 									</div>
@@ -47,10 +57,9 @@
 									  <div class="col-md-10">
 										<select name="supplier" id="inputSupplier" class="form-control">
 											<option value="">Select Supplier</option>
-											<option value="1">option 1</option>
-											<option value="2">option 2</option>
-											<option value="3">option 3</option>
-										</select>
+										@foreach (SupplierHelper::getAllSuppliers() as $sup)
+											<option value="{{$sup}}">{{$sup}}</option>
+										@endforeach										</select>
 									  </div>
 									</div>
 

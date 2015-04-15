@@ -7,21 +7,26 @@ class ProductController extends BaseController{
 	}
 	public function postAddNewProduct(){
 		$barcode = Input::get("barcode");
+		$quantity = Input::get("quantity");
+
 		$category = Input::get("category");
-		$supplier = Input::get("suppllier");
+		$supplier = Input::get("supplier");
 		$purchase_price = Input::get("purchase_price");
 		$sell_price = Input::get("sell_price");
 
-		DB::table('products')->insert(
-   			 array(
-   			 	'barcode'			=> $barcode, 
-   			 	'category'			=> $category,
-   			 	'suppllier'			=> $supplier,
-   			 	'purchase_price'	=> $purchase_price,
-   			 	'sell_price' 		=> $sell_price
-   			 	)
-		);
-		return Redirect::route("test");
+		for($i=0; $i<$quantity; $i++){
+
+				DB::table('products')->insert(
+   			 		array(
+			   			 	'barcode'			=> $barcode+$i, 
+			   			 	'category'			=> $category,
+			   			 	'suppllier'			=> $supplier,
+			   			 	'purchase_price'	=> $purchase_price,
+			   			 	'sell_price' 		=> $sell_price
+   			 			)
+				);
+		}
+		return Redirect::route('getAddNewProduct')->with('msg', 'Products have been added successfully');
 	}
 
 
