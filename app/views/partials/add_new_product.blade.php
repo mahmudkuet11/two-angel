@@ -30,6 +30,9 @@
 									<div class="form-group">
 									  <label for="inputProductCategory" class="col-md-2 control-label">Name</label>
 									  <div class="col-md-10">
+
+									  {{ $cat = Helper::getAllCategories() }}
+
 										<select name="category" id="inputProductCategory" class="form-control">
 											<option value="">Select a category</option>
 											<option value="1">option 1</option>
