@@ -26,6 +26,12 @@ class ProductController extends BaseController{
    			 			)
 				);
 		}
+		$old =  DB::table('categories')->select('quantity')
+		->where('name', '=', $category)->first();
+
+		DB::table('categories')->where('name', $category)
+               ->update(array('quantity' => $old->quantity+$quantity));
+
 		return Redirect::route('getAddNewProduct')->with('msg', 'Products have been added successfully');
 	}
 
