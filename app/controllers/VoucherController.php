@@ -21,4 +21,8 @@ class VoucherController extends BaseController{
 		);
 
 	}
+	public function getProductDetails(){
+		return DB::table('products')->select('category', 'sell_price', 'barcode')
+		->where('barcode', '=', Input::get("barcode"))->get();
+	}
 }
