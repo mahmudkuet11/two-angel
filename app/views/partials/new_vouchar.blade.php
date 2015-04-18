@@ -38,40 +38,24 @@
 									<tr>
 									  <th>#</th>
 									  <th>Product Name</th>
-									  <th>Specification</th>
 									  <th>Quantity</th>
 									  <th>Price</th>
 									</tr>
 								  </thead>
-								  <tbody>
-									<tr>
+								  <tbody id="cart">
+									{{-- <tr>
 									  <td>1</td>
 									  <td>Lux</td>
-									  <td>200gm</td>
 									  <td>2</td>
 									  <td>35 * 2</td>
-									</tr>
-									<tr>
-									  <td>1</td>
-									  <td>Lux</td>
-									  <td>200gm</td>
-									  <td>2</td>
-									  <td>35 * 2</td>
-									</tr>
-									<tr>
-									  <td>1</td>
-									  <td>Lux</td>
-									  <td>200gm</td>
-									  <td>2</td>
-									  <td>35 * 2</td>
-									</tr>
+									</tr> --}}
 								  </tbody>
 								</table>
-								<h2 class="text-primary">Total: 500</h2>
+								<h2 class="text-primary">Total: <span id="total_price">0</span></h2>
 									<div class="form-group">
 									  <label for="inputDiscount" class="col-md-2 control-label">Discount</label>
 									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputDiscount" placeholder="Discount">
+										<input type="number" class="form-control" id="inputDiscount" value="0">
 									  </div>
 									</div>
 									<div class="form-group">
@@ -83,7 +67,7 @@
 									<div class="form-group">
 									  <label for="inputDue" class="col-md-2 control-label">Due Amount</label>
 									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputDue" placeholder="Due Amount">
+										<input type="number" class="form-control" id="inputDue" value="0">
 									  </div>
 									</div> 
 									<div class="form-group">
