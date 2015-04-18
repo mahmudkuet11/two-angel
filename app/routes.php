@@ -162,5 +162,9 @@ Route::post('/test/category', array(
 		'uses'	=>	'TestController@postAddNewCategory'
 	));
 
+Route::post('/raju', function(){
+	return Input::get('a');
+});
+
 
 

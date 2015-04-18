@@ -21,6 +21,8 @@ $(document).ready(function(){
 		if(e.keyCode == 13){
 			$.get('http://localhost/two-angel/public/pd?barcode='+barcode, function(data, status){
 
+					$("#barcode_list").append('<span>'+ data[0].barcode +'</span>');
+
 					var found = false;
 
 					$("#cart tr").each(function(index){
@@ -40,7 +42,7 @@ $(document).ready(function(){
 					if(found == false){
 						count++;
 						total += parseFloat(data[0].sell_price);
-						$("#cart").append('<tr><td class="sl_no">'+ count +'<span class="barcode" style="display:none">'+ data[0].barcode +'</span></td><td class="category">'+ data[0].category +'</td><td class="quantity">1</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">1</span></td></tr>');
+						$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].category +'</td><td class="quantity">1</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">1</span></td></tr>');
 					}
 
 					console.log(total);
@@ -63,6 +65,29 @@ $(document).ready(function(){
 
 		$("#inputDue").val(total - discount - paid);
 	});	
+
+
+
+	/*
+	*	generate vouchar button click
+	*/
+	$("#generate_vouchar").click(function(){
+
+		var barcode_list 	= [];
+		var name 			= $("#inputName").val();
+		var phone 			= $("#inputPhone").val();
+		var address			= $("#inputAddress").val();
+		var total 			= $("#total_price").html();
+		var discount 		= $("#inputDiscount").val();
+		var paid 			= $("#inputPaid").val();
+		var due 			= $("#inputDue").val();
+		$("#barcode_list span").each(function(index){
+			barcode_list.push($(this).html());
+		});
+		
+		
+
+	});
 
 
 });

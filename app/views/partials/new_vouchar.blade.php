@@ -9,18 +9,28 @@
 						<div class="panel panel-default">
 							<div class="panel-body">
 									<legend>New Voucher</legend>
+
 									<div class="form-group">
 									  <label for="inputName" class="col-md-2 control-label">Name</label>
 									  <div class="col-md-10">
 										<input type="text" class="form-control" id="inputName" placeholder="Customer Name">
 									  </div>
 									</div>
+
+									<div class="form-group">
+									  <label for="inputPhone" class="col-md-2 control-label">Phone</label>
+									  <div class="col-md-10">
+										<input type="text" class="form-control" id="inputPhone" placeholder="Phone Number">
+									  </div>
+									</div>
+
 									<div class="form-group">
 									  <label for="inputAddress" class="col-md-2 control-label">Address</label>
 									  <div class="col-md-10">
 										<textarea class="form-control" id="inputAddress"> </textarea>
 									  </div>
 									</div>
+
 							</div>
 						</div>
 						
@@ -51,6 +61,9 @@
 									</tr> --}}
 								  </tbody>
 								</table>
+								<span id="barcode_list" style="display:none">
+									
+								</span>
 								<h2 class="text-primary">Total: <span id="total_price">0</span></h2>
 									<div class="form-group">
 									  <label for="inputDiscount" class="col-md-2 control-label">Discount</label>
@@ -72,7 +85,7 @@
 									</div> 
 									<div class="form-group">
 									  <div class="col-md-10 col-md-offset-2">
-										<br/><button class="btn btn-primary" type="button">Generate Voucher</button>
+										<br/><button class="btn btn-primary" type="button" id="generate_vouchar">Generate Voucher</button>
 									  </div>
 									</div>
 								
