@@ -93,6 +93,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
+Route::get('/pd', array(
+		'as'	=>	'/pd',
+		'uses'	=>	'VoucherController@getProductDetails'
+	));
 Route::get('/test', function(){
 		return Redirect::route("/test/product");
 });
