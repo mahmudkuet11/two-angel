@@ -2,10 +2,10 @@
 
 class VoucherController extends BaseController{
 
-	public function getAddNewVoucher(){
-		return View::make('partials.add_new_voucher');
+	public function getNewVoucher(){
+		return View::make('partials.new_vouchar');
 	}
-	public function postAddNewVoucher(){
+	public function postNewVoucher(){
 		$customer_name = Input::get("customer_name");
 		$address = Input::get("address");
 		$phone = Input::get("phone");

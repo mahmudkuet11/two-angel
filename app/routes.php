@@ -89,6 +89,18 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'postAddNewExpense',
 			'uses'	=>	'ExpenseController@postAddNewExpense'
 		));
+
+	/*
+	*	----- Vouchar Controller Routes
+	*/
+	Route::get('/vouchar/new', array(
+			'as'	=>	'getNewVouchar',
+			'uses'	=>	'VoucherController@getNewVoucher'
+		));
+	Route::post('/vouchar/new', array(
+			'as'	=>	'postNewVouchar',
+			'uses'	=>	'VoucherController@postNewVoucher'
+		));
 });
 /*
 * -------------------Testting Suit----------
