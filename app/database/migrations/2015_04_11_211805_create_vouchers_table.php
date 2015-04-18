@@ -18,6 +18,8 @@ class CreateVouchersTable extends Migration {
 			$table->string("address");
 			$table->string("phone");
 			$table->decimal("total_price", 6, 2);
+			$table->decimal("discount", 6, 2);
+			$table->decimal("paid", 6, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 		});
 

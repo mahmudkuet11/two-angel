@@ -10,13 +10,17 @@ class VoucherController extends BaseController{
 		$address = Input::get("address");
 		$phone = Input::get("phone");
 		$total_price = Input::get("total_price");
+		$discout = Input::get("discount");
+		$paid = Input::get("paid");
 
 		DB::table('vouchers')->insert(
    			 array(
    			 	'customer_name'			=> $customer_name,
    			 	'address'				=> $address,
    			 	'phone'					=> $phone,
-   			 	'total_price'			=> $total_price
+   			 	'total_price'			=> $total_price,
+   			 	'discount'				=> $discount,
+   			 	'paid'					=> $paid
    			 	)
 		);
 
