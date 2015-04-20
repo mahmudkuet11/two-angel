@@ -38,13 +38,15 @@ class ProductController extends BaseController{
 	public function getSearchProduct(){
 		return View::make('partials.search_product');
 	}
-	public function getProductByCategory(){
-		return DB::table('products')->select(DB::raw('date, category, COUNT(*) AS quantity,
+	public function getProductByCategory($category){
+		$res = DB::table('products')->select(DB::raw('date, category, COUNT(*) AS quantity,
 					 suppllier, purchase_price, sell_price'))
 			
-					->where('category', '=', Input::get('category'))
+					->where('category', '=', $category)
                     ->groupBy(DB::raw('CAST(date AS DATE)'))
                     ->get();
+
+        return json_encode($res);
 
 	}
 

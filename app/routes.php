@@ -58,6 +58,11 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'as'	=>	'getSearchProduct',
 		'uses'	=>	'ProductController@getSearchProduct'
 	));
+	Route::get('/product/get/{category}', array(
+		'as'     =>'getProductByCategory',
+		'uses'   => 'ProductController@getProductByCategory'
+	));
+
 
 	/*
 	*	----- Category Controller Routes
@@ -128,9 +133,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 	'uses'   => 'VoucherController@getUpdateVoucher'
 	));
 	Route::post('vouchar/update', array(
-	'as'     =>'vouchar/update',
+	'as'     =>'postUpdateVoucher',
 	'uses'   => 'VoucherController@postUpdateVoucher'
 	));
+
 
 });
 
@@ -138,10 +144,7 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
-Route::get('/product/get_product_by_name', array(
-	'as'     =>'/product/get_product_by_name',
-	'uses'   => 'ProductController@getProductByCategory'
-	));
+
 Route::post('vouchar/update', array(
 	'as'     =>'vouchar/update',
 	'uses'   => 'VoucherController@postUpdateVoucher'

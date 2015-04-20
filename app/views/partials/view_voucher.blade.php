@@ -103,7 +103,7 @@
 			$(document).ready(function(){
 
 				$.get("{{ URL::route('updatevoucher').'?id='.$voucher_id }}", function(data){
-					console.log(JSON.parse(data));
+					//console.log(JSON.parse(data));
 
 					var voucher_details = JSON.parse(data);
 					$("#inputName").val(voucher_details.customer_name);
@@ -126,7 +126,17 @@
 				*	update voucher button click
 				*/
 				$("#update_voucher").click(function(){
-					
+					var voucher = {};
+					voucher.id 				= {{ $voucher_id }};
+					voucher.name 	= $("#inputName").val();
+					voucher.phone 			= $("#inputPhone").val();
+					voucher.address 		= $("#inputAddress").val();
+					voucher.discount 		= $("#inputDiscount").val();
+					voucher.paid 			= $("#inputPaid").val();
+
+					$.post("{{ URL::route('postUpdateVoucher') }}", voucher, function(data){
+						console.log(data);
+					});
 				});
 
 			});

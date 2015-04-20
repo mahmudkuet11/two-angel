@@ -174,7 +174,7 @@ $(document).ready(function(){
 	*	update voucher button click
 	*/
 
-	$("#update_voucher").click(function(){
+	/*$("#update_voucher").click(function(){
 
 		var vouchar 		= {};
 		var id 				= $("#voucher_id").html();
@@ -199,7 +199,7 @@ $(document).ready(function(){
 			console.log(vouchar);
 		});
 
-	});
+	});*/
 
 
 	
