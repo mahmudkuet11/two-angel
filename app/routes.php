@@ -45,6 +45,7 @@ Route::group(array('before'	=>	'login_required'), function(){
 	/*
 	*	----- Product controller routes
 	*/
+
 	Route::get('/product/add', array(
 		'as'	=>	'getAddNewProduct',
 		'uses'	=>	'ProductController@getAddNewProduct'
@@ -111,6 +112,11 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
+
+Route::post('/vouchar/newww', array(
+	'as'     =>'/vouchar/newww',
+	'uses'   => 'VoucherController@postConfirmVoucher'
+	));
 Route::get('/vd', array(
 	'as'     =>'/vd',
 	'uses'   => 'VoucherController@getVoucherListByDate'
@@ -119,6 +125,7 @@ Route::get('/vd', array(
 	'as'     =>'/vn',
 	'uses'   => 'VoucherController@getVoucherListByCustomerName'
 	));
+
 Route::get('/pd', array(
 		'as'	=>	'/pd',
 		'uses'	=>	'VoucherController@getProductDetails'

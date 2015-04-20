@@ -47,4 +47,43 @@ class VoucherController extends BaseController{
    			 return json_encode( DB::table('vouchers')
                  ->where('customer_name', 'LIKE', '%'.$name.'%')->get());
 	}
+	public function postConfirmVoucher(){
+		$voucher_id = DB::table('vouchers')->count()+1;
+		$name = Input::get('name');
+		$phone = Input::get('phone');
+		$address = Input::get('address');
+		$barcode_list = json_decode(Input::get('barcode_list'));
+		$total = Input::get('total');
+		$discount = Input::get('discount');
+		$paid = Input::get('paid');
+		$due = Input::get('due');
+		$var = "start";
+	
+	  foreach ($barcode_list as $barcode) {
+			$info = DB::table('products')->select('sell_price', 'category')->where('barcode', '=', $barcode)->get()[0];
+			DB::table('orders')->insert(array(
+					'voucher_id'	 => $voucher_id,
+					 'barcode'		 => $barcode, 
+					 'price' 		=> $info->sell_price)
+				);
+			$old =  DB::table('categories')->select('quantity')
+					->where('name', '=', $info->category)->first();
+
+			DB::table('categories')->where('name', $info->category)
+               ->update(array('quantity' => $old->quantity-1));
+
+            DB::table('products')->where('barcode', '=', $barcode)->delete();
+		}	
+		 DB::table('vouchers')->insert(array(
+					 'id'					 => $voucher_id,
+					 'customer_name'		 => $name, 
+					 'address' 				=> $address,
+					 'phone'				 => $phone,
+					 'total_price'			 => $total, 
+					 'discount' 			=> $discount,
+					 'paid'					 => $paid
+					 )
+		);
+		return "Success";
+	}
 }
