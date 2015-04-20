@@ -130,7 +130,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
-
+Route::post('vouchar/update', array(
+	'as'     =>'vouchar/update',
+	'uses'   => 'VoucherController@postUpdateVoucher'
+	));
+Route::get('/voucher/updatevoucher', array(
+	'as'     =>'/updatevoucher',
+	'uses'   => 'VoucherController@getUpdateVoucher'
+	));
 Route::post('/vouchar/newww', array(
 	'as'     =>'/vouchar/newww',
 	'uses'   => 'VoucherController@postConfirmVoucher'

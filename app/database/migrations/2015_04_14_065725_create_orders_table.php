@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration {
 			Schema::create("orders", function($table){
 			$table->string("voucher_id");
 			$table->string("barcode");
+			$table->string("category");
 			$table->decimal("price", 6, 2);
 		});
 	}
