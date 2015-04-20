@@ -46,14 +46,14 @@
 									</tr>
 								  </thead>
 								  <tbody>
-									<tr id="lux 20gm">
+									<tr>
 										<td>Lux 20gm</td>
 										<td>40</td>
-										<td class="editable_field warning_quantity">5</td>
+										<td>5</td>
 										<td>Raju</td>
 										<td>Uniliver</td>
-										<td class="editable_field purchase_price">35</td>
-										<td class="editable_field sell_price">48</td>
+										<td>35</td>
+										<td>48</td>
 									</tr>
 								  </tbody>
 								</table>
