@@ -105,10 +105,20 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'getSearchVouchar',
 			'uses'	=>	'VoucherController@getSearchVoucher'
 		));
-	Route::get('/voucher/view', array(
+	Route::get('/voucher/view/{id}', array(
 			'as'	=>	'getViewVouchar',
 			'uses'	=>	'VoucherController@getViewVoucher'
 		));
+
+	Route::get('/voucher/list/date', array(
+		'as'     =>'getVoucherListByDate',
+		'uses'   => 'VoucherController@getVoucherListByDate'
+	));
+	Route::get('/voucher/list/name', array(
+		'as'     =>'getVoucherListByCustomerName',
+		'uses'   => 'VoucherController@getVoucherListByCustomerName'
+	));
+
 });
 
 

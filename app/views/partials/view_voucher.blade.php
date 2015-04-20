@@ -9,7 +9,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
-									<legend>View Voucher</legend>
+									<legend>View Voucher <span style="color:#2196f3;">#<span id="voucher_id">{{ $voucher_id }}</span></span></legend>
 
 									<div class="form-group">
 									  <label for="inputName" class="col-md-2 control-label">Name</label>
@@ -85,7 +85,7 @@
 									</div> 
 									<div class="form-group">
 									  <div class="col-md-10 col-md-offset-2">
-										<br/><button class="btn btn-primary" type="button" id="">Update Voucher</button>
+										<br/><button class="btn btn-primary" type="button" id="update_voucher">Update Voucher</button>
 									  </div>
 									</div>
 								
