@@ -77,7 +77,7 @@
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button type="button" class="btn btn-primary" id="update_product_save_button">Save changes</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -105,18 +105,17 @@
 						var found = false;
 						for(res in results){
 							found = true;
-							$("#display_product_search_result").append('<tr><td class="date">'+ results[res].date +'</td><td class="category">'+ results[res].category +'</td><td>'+ results[res].quantity +'</td><td>'+ results[res].suppllier +'</td><td class="purchase_price">'+ results[res].purchase_price +'</td><td class="sell_price">'+ results[res].sell_price +'</td><td><a href="" class="product_edit_button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td></tr>');
+							$("#display_product_search_result").append('<tr><td class="date">'+ results[res].date +'</td><td class="category">'+ results[res].category +'</td><td>'+ results[res].quantity +'</td><td>'+ results[res].suppllier +'</td><td class="purchase_price">'+ results[res].purchase_price +'</td><td class="sell_price">'+ results[res].sell_price +'</td><td><a href="#" class="product_edit_button" onclick="edit_product_button_click_handler(this)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td></tr>');
 
 
 
-								$(".product_edit_button").click(function(e){
+								/*$(".product_edit_button").click(function(e){
 									e.preventDefault();
 									$("#edit_product_modal").modal({
 										'show':true
 									});
-
-									//$(this).closest("tr")
-								});
+									//alert($(this).closest(".date").html());
+								});*/
 
 						}
 						if(!found){
@@ -126,7 +125,29 @@
 
 				});
 
+
+				$("#update_product_save_button").click(function(){
+					$.post("");
+				});
+
 			});
+
+			function edit_product_button_click_handler(obj){
+				$("#edit_product_modal").modal({
+					'show':true
+				});
+				var obj1 = $(obj).closest("tr");
+				var category = $(".category", obj1).html();
+				var date = $(".date", obj1).html();
+				var purchase_price = $(".purchase_price", obj1).html();
+				var sell_price = $(".sell_price", obj1).html();
+
+				$("#modal_product_details p").html(category);
+				$("#modal_product_details small").html(date);
+
+				$("#inputPurchasePrice").val(purchase_price);
+				$("#inputSellPrice").val(sell_price);
+			}
 
 		</script>
 
