@@ -68,6 +68,7 @@ class VoucherController extends BaseController{
 			DB::table('orders')->insert(array(
 					'voucher_id'	 => $voucher_id,
 					 'barcode'		 => $barcode, 
+					 'category'		=> $info->category,
 					 'price' 		=> $info->sell_price)
 				);
 			$old =  DB::table('categories')->select('quantity')
@@ -89,5 +90,28 @@ class VoucherController extends BaseController{
 					 )
 		);
 		return "Success";
+	}
+	public function getUpdateVoucher(){
+
+		$voucher_id = Input::get('id');
+		 $info = DB::table('vouchers')
+		 	->select('id', 'customer_name', 'address', 'phone', 'total_price', 'discount', 'paid')
+			 ->where('id', '=', $voucher_id)->first();
+
+		$prds = DB::table('orders')->select('barcode', 'category', 'price')->where('voucher_id', '=', $voucher_id)->get();
+		$info->products_details = $prds;
+		return json_encode($info);
+	}
+	public function postUpdateVoucher(){
+			DB::table('vouchers')
+            ->where('id', Input::get('id'))
+            ->update(array(
+            	'customer_name'			 => Input::get('name'),
+            	'phone' 			   	=> Input::get('phone'),
+            	'address'				 => Input::get('address'),
+            	'discount'				 => Input::get('discount'),
+            	'paid' 					=> Input::get('paid'),
+            	));
+            return "success";
 	}
 }
