@@ -31,6 +31,10 @@ class VoucherController extends BaseController{
 		return View::make('partials.search_voucher');
 	}
 
+	public function getViewVoucher(){
+		return View::make('partials.view_voucher');
+	}
+
 
 	public function getProductDetails(){
 		return DB::table('products')->select('category', 'sell_price', 'barcode')

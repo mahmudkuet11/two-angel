@@ -105,6 +105,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'getSearchVouchar',
 			'uses'	=>	'VoucherController@getSearchVoucher'
 		));
+	Route::get('/voucher/view', array(
+			'as'	=>	'getViewVouchar',
+			'uses'	=>	'VoucherController@getViewVoucher'
+		));
 });
 
 
