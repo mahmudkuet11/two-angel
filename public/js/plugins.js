@@ -22,3 +22,12 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+
+$(document).ready(function(){
+
+    $('.datepicker').datepicker({
+        todayHighlight  :   true,
+        format          :   "dd-mm-yyyy"
+    });
+
+});

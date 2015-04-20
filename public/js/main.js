@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 		var barcode = $('#inputBarCode').val();
 		if(e.keyCode == 13){
-			$.get('http://localhost/two-angel/public/pd?barcode='+barcode, function(data, status){
+			$.get('http://localhost/ta/public/pd?barcode='+barcode, function(data, status){
 
 					$("#barcode_list").append('<span>'+ data[0].barcode +'</span>');
 
@@ -45,7 +45,6 @@ $(document).ready(function(){
 						$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].category +'</td><td class="quantity">1</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">1</span></td></tr>');
 					}
 
-					console.log(total);
 					$('#total_price').html(total);
 
 			});
@@ -73,6 +72,7 @@ $(document).ready(function(){
 	*/
 	$("#generate_vouchar").click(function(){
 
+		var vouchar = {};
 		var barcode_list 	= [];
 		var name 			= $("#inputName").val();
 		var phone 			= $("#inputPhone").val();
@@ -84,9 +84,45 @@ $(document).ready(function(){
 		$("#barcode_list span").each(function(index){
 			barcode_list.push($(this).html());
 		});
-		
-		
 
+		vouchar.name 			= name;
+		vouchar.phone 			= phone;
+		vouchar.address 		= address;
+		vouchar.barcode_list	= JSON.stringify(barcode_list);
+		vouchar.total 			= total;
+		vouchar.discount 		= discount;
+		vouchar.paid 			= paid;
+		vouchar.due 			= due;
+		
+		$.post("http://localhost/ta/public/vouchar/newww", vouchar, function(data){
+			console.log(vouchar);
+		});
+
+	});
+
+
+
+
+	/*
+	*	Search Voucher
+	*/
+
+	$("#search_voucher_select").change(function(){
+		if($("#search_voucher_select").val() == 'date'){
+			
+			$("#input_filter").attr("placeholder","Select Date");
+			
+			$('.datepicker').datepicker({
+		        todayHighlight  :   true,
+		        format          :   "dd-mm-yyyy"
+		    });
+
+		}else if($("#search_voucher_select").val() == 'name'){
+			
+			$("#input_filter").attr("placeholder","Enter Name");
+			$(".datepicker").datepicker('remove');
+
+		}
 	});
 
 

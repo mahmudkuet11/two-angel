@@ -15,8 +15,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sell <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="new_voucher.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;New Voucher</a></li>
-            <li><a href="search_voucher.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Voucher</a></li>
+            <li><a href="{{ URL::route('getNewVouchar') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;New Voucher</a></li>
+            <li><a href="{{ URL::route('getSearchVouchar') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Voucher</a></li>
 			<li><a href="view_voucher.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>&nbsp;&nbsp;View Voucher</a></li>
           </ul>
         </li>

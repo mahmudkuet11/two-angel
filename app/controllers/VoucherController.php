@@ -25,6 +25,13 @@ class VoucherController extends BaseController{
 		);
 
 	}
+
+
+	public function getSearchVoucher(){
+		return View::make('partials.search_voucher');
+	}
+
+
 	public function getProductDetails(){
 		return DB::table('products')->select('category', 'sell_price', 'barcode')
 		->where('barcode', '=', Input::get("barcode"))->get();

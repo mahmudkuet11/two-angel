@@ -101,7 +101,13 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'postNewVouchar',
 			'uses'	=>	'VoucherController@postNewVoucher'
 		));
+	Route::get('/voucher/search', array(
+			'as'	=>	'getSearchVouchar',
+			'uses'	=>	'VoucherController@getSearchVoucher'
+		));
 });
+
+
 /*
 * -------------------Testting Suit----------
 */
