@@ -34,25 +34,11 @@
 									  <th>Supplier</th>
 									  <th>Purchase Price</th>
 									  <th>Sell Price</th>
+									  <th>Edit</th>
 									</tr>
 								  </thead>
-								  <tbody>
-									<tr>
-										<td>20-04-2015</td>
-										<td>lux 20g</td>
-										<td>30</td>
-										<td>raju</td>
-										<td>30</td>
-										<td>35</td>
-									</tr>
-									<tr>
-										<td>20-04-2015</td>
-										<td>lux 20g</td>
-										<td>30</td>
-										<td>raju</td>
-										<td>30</td>
-										<td>35</td>
-									</tr>
+								  <tbody id="display_product_search_result">
+									
 								  </tbody>
 								</table>
 							</div>
@@ -63,17 +49,79 @@
 
 		</div>
 
+
+		<div class="modal fade" id="edit_product_modal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Update Price</h4>
+		      </div>
+		      <div class="modal-body">
+				
+				<blockquote id="modal_product_details">
+				  <p>Product name</p>
+				  <small>20-05-2015</small>
+				</blockquote>
+
+				<div class="form-group">
+				  <label class="control-label" for="inputPurchasePrice">Purchase Price</label>
+				  <input class="form-control" id="inputPurchasePrice" type="text" placeholder="Update purchase price">
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label" for="inputSellPrice">Sell Price</label>
+				  <input class="form-control" id="inputSellPrice" type="text" placeholder="Update sell price">
+				</div>
+
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+
+
 		<script type="text/javascript">
 
 			$(document).ready(function(){
 
+				$("#display_product_search_result").html("<h2>Please select a Category</h2>");
+
 				$("#search_product_select").change(function(){
-					if($(this).val() == "") return;
+					if($(this).val() == ""){
+						$("#display_product_search_result").html("<h2>Please select a Category</h2>");
+						return;
+					}
 
 					var cat = $(this).val();
+					$("#display_product_search_result").html("");
+					$.get("{{ URL::route('getHome') }}/product/get/"+cat, function(data){
+						var results = JSON.parse(data);
+						var found = false;
+						for(res in results){
+							found = true;
+							$("#display_product_search_result").append('<tr><td class="date">'+ results[res].date +'</td><td class="category">'+ results[res].category +'</td><td>'+ results[res].quantity +'</td><td>'+ results[res].suppllier +'</td><td class="purchase_price">'+ results[res].purchase_price +'</td><td class="sell_price">'+ results[res].sell_price +'</td><td><a href="" class="product_edit_button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td></tr>');
 
-					$.get("{{ URL::route('getProductByCategory') }}/" + cat, function(data){
-						console.log(data);
+
+
+								$(".product_edit_button").click(function(e){
+									e.preventDefault();
+									$("#edit_product_modal").modal({
+										'show':true
+									});
+
+									//$(this).closest("tr")
+								});
+
+						}
+						if(!found){
+							$("#display_product_search_result").html("<h2>No Data Found !!!</h2>");
+						}
 					});
 
 				});
