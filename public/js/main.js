@@ -72,6 +72,7 @@ $(document).ready(function(){
 	*/
 	$("#generate_vouchar").click(function(){
 
+		console.log("bal");
 		var vouchar = {};
 		var barcode_list 	= [];
 		var name 			= $("#inputName").val();
@@ -84,7 +85,7 @@ $(document).ready(function(){
 		$("#barcode_list span").each(function(index){
 			barcode_list.push($(this).html());
 		});
-
+		console.log("bal");
 		vouchar.name 			= name;
 		vouchar.phone 			= phone;
 		vouchar.address 		= address;
@@ -95,7 +96,8 @@ $(document).ready(function(){
 		vouchar.due 			= due;
 		
 		$.post("http://localhost/ta/public/vouchar/newww", vouchar, function(data){
-			console.log(vouchar);
+			//console.log(vouchar);
+			console.log(data);
 		});
 
 	});
