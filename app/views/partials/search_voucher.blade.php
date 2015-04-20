@@ -21,7 +21,7 @@
 										<input type="text" class="form-control datepicker" id="input_filter" placeholder="Select Date">
 									  </div>
 									  <div class="col-md-2">
-										<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp;Search</button>
+										<button class="btn btn-primary" type="button" id="search_voucher_button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp;Search</button>
 									  </div>
 									</div>
 								  </fieldset>
@@ -43,10 +43,11 @@
 									  <th>Address</th>
 									  <th>Total Amount</th>
 									  <th>Discount</th>
+									  <th>Paid</th>
 									  <th>Due</th>
 									</tr>
 								  </thead>
-								  <tbody>
+								  <tbody id="voucher_list">
 									<tr>
 										<td><a href="">123</a></td>
 										<td>22-03-2015</td>
