@@ -144,6 +144,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
+Route::get('/test/product/update', array(
+		'as'	=>	'/test/product/update',
+		'uses'	=>	'ProductController@postEditProduct'
+	));
 
 Route::post('vouchar/update', array(
 	'as'     =>'vouchar/update',
