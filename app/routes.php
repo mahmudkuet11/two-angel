@@ -111,6 +111,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
+Route::get('/vd', array(
+	'as'     =>'/vd',
+	'uses'   => 'VoucherController@getVoucherListByDate'
+	));
+	Route::get('/vn', array(
+	'as'     =>'/vn',
+	'uses'   => 'VoucherController@getVoucherListByCustomerName'
+	));
 Route::get('/pd', array(
 		'as'	=>	'/pd',
 		'uses'	=>	'VoucherController@getProductDetails'

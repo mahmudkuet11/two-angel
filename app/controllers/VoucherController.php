@@ -36,4 +36,15 @@ class VoucherController extends BaseController{
 		return DB::table('products')->select('category', 'sell_price', 'barcode')
 		->where('barcode', '=', Input::get("barcode"))->get();
 	}
+	public function getVoucherListByDate(){
+
+  			 $date = Input::get("date");
+   			 return json_encode( DB::table('vouchers')
+                 ->whereBetween('date', array($date, $date." "."23:59:59"))->get());
+	}
+	public function getVoucherListByCustomerName(){;
+  			 $name = Input::get("customer_name");
+   			 return json_encode( DB::table('vouchers')
+                 ->where('customer_name', 'LIKE', '%'.$name.'%')->get());
+	}
 }
