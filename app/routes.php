@@ -123,6 +123,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'as'     =>'getVoucherListByCustomerName',
 		'uses'   => 'VoucherController@getVoucherListByCustomerName'
 	));
+	Route::get('/voucher/details', array(
+	'as'     =>'updatevoucher',
+	'uses'   => 'VoucherController@getUpdateVoucher'
+	));
+	Route::post('vouchar/update', array(
+	'as'     =>'vouchar/update',
+	'uses'   => 'VoucherController@postUpdateVoucher'
+	));
 
 });
 

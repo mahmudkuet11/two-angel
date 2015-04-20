@@ -46,7 +46,7 @@
 									  <th>Price</th>
 									</tr>
 								  </thead>
-								  <tbody id="cart">
+								  <tbody id="product_details_view_vouchar_page">
 									<tr>
 									  <td>100</td>
 									  <td>Lux 20gm</td>
@@ -97,6 +97,41 @@
 			</div>
 
 		</div>
+
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$.get("{{ URL::route('updatevoucher').'?id='.$voucher_id }}", function(data){
+					console.log(JSON.parse(data));
+
+					var voucher_details = JSON.parse(data);
+					$("#inputName").val(voucher_details.customer_name);
+					$("#inputPhone").val(voucher_details.phone);
+					$("#inputAddress").val(voucher_details.address);
+					$("#total_price").text(voucher_details.total_price);
+					$("#inputDiscount").val(voucher_details.discount);
+					$("#inputPaid").val(voucher_details.paid);
+					$("#inputDue").val(voucher_details.total_price - voucher_details.discount - voucher_details.paid);
+
+					$("#product_details_view_vouchar_page").html("");
+					for(index in voucher_details.products_details){
+						$("#product_details_view_vouchar_page").append('<tr><td>'+ voucher_details.products_details[index].barcode +'</td><td>'+ voucher_details.products_details[index].category +'</td><td>'+ voucher_details.products_details[index].price +'</td></tr>');
+					}
+				});
+
+
+
+				/*
+				*	update voucher button click
+				*/
+				$("#update_voucher").click(function(){
+					
+				});
+
+			});
+
+		</script>
 
 
 @stop
