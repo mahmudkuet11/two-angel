@@ -35,5 +35,9 @@ class ProductController extends BaseController{
 		return Redirect::route('getAddNewProduct')->with('msg', 'Products have been added successfully');
 	}
 
+	public function getSearchProduct(){
+		return View::make('partials.search_product');
+	}
+
 
 }

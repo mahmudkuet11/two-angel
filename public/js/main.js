@@ -200,4 +200,13 @@ $(document).ready(function(){
 	});
 
 
+	/*
+	*	Search product
+	*/
+	$(".editable_field").click(function(){
+		$(this).html('<input type="text" class="form-control editable_input_field" value="20" />');
+		$(".editable_input_field",this).focus();
+	});
+
+
 });

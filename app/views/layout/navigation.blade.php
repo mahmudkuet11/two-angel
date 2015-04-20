@@ -27,7 +27,7 @@
             <li><a href="{{ URL::route('getAddNewProduct') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Add New Product</a></li>
 			<li class="divider"></li>
             <li><a href="edit_product.html"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;Edit Product</a></li>
-            <li><a href="view_product.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;View Product</a></li>
+            <li><a href="{{ URL::route('getSearchProduct') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Product</a></li>
             <li><a href="delete_product.html"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Product</a></li>
           </ul>
         </li>

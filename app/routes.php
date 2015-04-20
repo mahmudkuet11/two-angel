@@ -53,6 +53,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'as'	=>	'postAddNewProduct',
 		'uses'	=>	'ProductController@postAddNewProduct'
 	));
+	Route::get('/product/search', array(
+		'as'	=>	'getSearchProduct',
+		'uses'	=>	'ProductController@getSearchProduct'
+	));
 
 	/*
 	*	----- Category Controller Routes
