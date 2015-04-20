@@ -138,6 +138,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
+Route::get('/product/get_product_by_name', array(
+	'as'     =>'/product/get_product_by_name',
+	'uses'   => 'ProductController@getProductByCategory'
+	));
 Route::post('vouchar/update', array(
 	'as'     =>'vouchar/update',
 	'uses'   => 'VoucherController@postUpdateVoucher'
