@@ -7,9 +7,15 @@
 			<div class="add_new_product_area">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
+
 						<div class="panel panel-default">
 							<div class="panel-body">
 									<legend>View Voucher <span style="color:#2196f3;">#<span id="voucher_id">{{ $voucher_id }}</span></span></legend>
+
+									<div class="alert alert-dismissible alert-success" id="voucher_update_message" style="display:none">
+									  <button type="button" class="close">×</button>
+									  Voucher has been updated successfully.
+									</div>
 
 									<div class="form-group">
 									  <label for="inputName" class="col-md-2 control-label">Name</label>
@@ -80,7 +86,7 @@
 									<div class="form-group">
 									  <label for="inputDue" class="col-md-2 control-label">Due Amount</label>
 									  <div class="col-md-10">
-										<input type="number" class="form-control" id="inputDue" value="0">
+										<input disabled="" type="number" class="form-control" id="inputDue" value="0">
 									  </div>
 									</div> 
 									<div class="form-group">
@@ -128,15 +134,42 @@
 				$("#update_voucher").click(function(){
 					var voucher = {};
 					voucher.id 				= {{ $voucher_id }};
-					voucher.name 	= $("#inputName").val();
+					voucher.name 			= $("#inputName").val();
 					voucher.phone 			= $("#inputPhone").val();
 					voucher.address 		= $("#inputAddress").val();
 					voucher.discount 		= $("#inputDiscount").val();
 					voucher.paid 			= $("#inputPaid").val();
 
 					$.post("{{ URL::route('postUpdateVoucher') }}", voucher, function(data){
+						if(data == 'success'){
+							$("#voucher_update_message").show(500);
+						}else{
+							alert("something is wrong!!!");
+						}
 						console.log(data);
 					});
+				});
+
+				$("#inputPaid").keyup(function(e){
+					var total 		= parseFloat($("#total_price").html());
+					var discount 	= parseFloat($("#inputDiscount").val());
+					var paid 		= parseFloat($("#inputPaid").val()); 
+
+
+					$("#inputDue").val(total - discount - paid);
+				});	
+
+				$("#inputDiscount").keyup(function(e){
+					var total 		= parseFloat($("#total_price").html());
+					var discount 	= parseFloat($("#inputDiscount").val());
+					var paid 		= parseFloat($("#inputPaid").val()); 
+
+
+					$("#inputDue").val(total - discount - paid);
+				});	
+
+				$("#voucher_update_message .close").click(function(){
+					$("#voucher_update_message").hide(500);
 				});
 
 			});
