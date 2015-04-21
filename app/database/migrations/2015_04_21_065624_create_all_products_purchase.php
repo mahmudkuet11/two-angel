@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVouchersTable extends Migration {
+class CreateAllProductsPurchase extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,18 +12,15 @@ class CreateVouchersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create("vouchers", function($table){
-			$table->increments("id");
-			$table->string("customer_name");
-			$table->string("address");
-			$table->string("phone");
-			$table->decimal("total_price", 6, 2);
-			$table->decimal("discount", 6, 2);
-			$table->decimal("paid", 6, 2);
+		Schema::create("all_products_purchase", function($table){
+			$table->string("category");
+			$table->string("suppllier");
+			$table->integer("quantity");
+			$table->decimal("purchase_price", 6, 2);
+			$table->decimal("sell_price", 6, 2);
 			$table->decimal("total_purchase_price", 6, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 		});
-
 	}
 
 	/**
@@ -33,7 +30,8 @@ class CreateVouchersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('vouchers');
+
+		Schema::dropIfExists('all_products_purchase');
 
 	}
 

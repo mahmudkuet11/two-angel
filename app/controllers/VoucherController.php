@@ -62,6 +62,7 @@ class VoucherController extends BaseController{
 		$paid = Input::get('paid');
 		$due = Input::get('due');
 		$var = "start";
+		$total_purchase = 0.00;
 	
 	  foreach ($barcode_list as $barcode) {
 			$info = DB::table('products')->select('sell_price', 'category')->where('barcode', '=', $barcode)->get()[0];
@@ -73,6 +74,8 @@ class VoucherController extends BaseController{
 				);
 			$old =  DB::table('categories')->select('quantity')
 					->where('name', '=', $info->category)->first();
+			$total_purchase = $total_purchase+ DB::table('products')->select('purchase_price')
+					->where('barcode', '=', $barcode)->first()->purchase_price;
 
 			DB::table('categories')->where('name', $info->category)
                ->update(array('quantity' => $old->quantity-1));
@@ -86,7 +89,8 @@ class VoucherController extends BaseController{
 					 'phone'				 => $phone,
 					 'total_price'			 => $total, 
 					 'discount' 			=> $discount,
-					 'paid'					 => $paid
+					 'paid'					 => $paid,
+					 'total_purchase_price'   =>$total_purchase
 					 )
 		);
 		return "Success";
