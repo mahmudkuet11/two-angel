@@ -62,6 +62,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'as'     =>'getProductByCategory',
 		'uses'   => 'ProductController@getProductByCategory'
 	));
+	Route::post('product/edit', array(
+		'as'	=>	'postEditProduct',
+		'uses'	=>	'ProductController@postEditProduct'
+	));
 
 
 	/*

@@ -126,28 +126,35 @@
 				});
 
 
-				$("#update_product_save_button").click(function(){
-					$.post("");
-				});
-
 			});
 
+			var option = {};
 			function edit_product_button_click_handler(obj){
 				$("#edit_product_modal").modal({
 					'show':true
 				});
+
+				
 				var obj1 = $(obj).closest("tr");
-				var category = $(".category", obj1).html();
-				var date = $(".date", obj1).html();
-				var purchase_price = $(".purchase_price", obj1).html();
-				var sell_price = $(".sell_price", obj1).html();
+				option.category = $(".category", obj1).html();
+				option.date = $(".date", obj1).html();
+				option.purchase_price = $(".purchase_price", obj1).html();
+				option.sell_price = $(".sell_price", obj1).html();
+				console.log(option);
+				$("#modal_product_details p").html(option.category);
+				$("#modal_product_details small").html(option.date);
 
-				$("#modal_product_details p").html(category);
-				$("#modal_product_details small").html(date);
+				$("#inputPurchasePrice").val(option.purchase_price);
+				$("#inputSellPrice").val(option.sell_price);
 
-				$("#inputPurchasePrice").val(purchase_price);
-				$("#inputSellPrice").val(sell_price);
+				console.log(option);
 			}
+
+			$("#update_product_save_button").click(function(){
+					$.post("{{ URL::route('postEditProduct') }}", option, function(data){
+						console.log(data);
+					});
+				});
 
 		</script>
 

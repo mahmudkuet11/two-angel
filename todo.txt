@@ -1,4 +1,4 @@
 1. font install
-2. products to be added sidebar count
+2. products to be added sidebar count -- deprecated
 3. vouchar javascript get rout should be changed
-4. warning qty
+4. warning qty menu and page
