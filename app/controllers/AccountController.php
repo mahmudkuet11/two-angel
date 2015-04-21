@@ -30,5 +30,51 @@ class AccountController extends BaseController{
 		Session::forget('user');
 		return Redirect::route('getLogin');
 	}
+	public function postCreateAccount(){
+		$username = Input::get('username');
+		$password = Input::ge('password');
+		$account_type = Input::get("account_type");
+		$user = DB::table('users')->where('username', $username)->first();
+		if(!$user){
+			DB::table('users')->insert(
+    				array(
+    					'username' => $username,
+    					 'password' => Hash::make($password), 
+    					 'account_type'=> $account_type
+    					 )
+			);
+			return Redirect::route('createUser')->with(array(
+					'success'	=>	'Account created  successfully!',
+					'username'			=>	$username
+				));
+
+		}else{
+			return Redirect::route('createUser')->with(array(
+					'username_error'	=>	'This username already used!',
+					'username'			=>	$username
+				));
+		}
+	}
+	public function postUpdatePassword(){
+		$username = Input::get('username');
+		$new_password = Input::ge('new_password');	
+		$old_password = Input::ge('old_password');	
+
+		$user = DB::table('users')->where('username', $username)->first();
+		if($user){
+			if(Hash::check($old_password, $user->password)){
+				DB::table('users')
+          		  ->where('username', '=', $username)
+            		->update(array('password' => Hash::make($new_password)));
+			}else{
+				return Redirect::route('getChangePassowrd')->with('password_error', 'Password is incorrect!');
+			}
+		}else{
+			return Redirect::route('getChangePassowrd')->with(array(
+					'username_error'	=>	'This username does not exist!',
+					'username'			=>	$username
+				));
+		}
+	}
 
 }
