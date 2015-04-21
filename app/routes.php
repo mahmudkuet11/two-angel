@@ -141,6 +141,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 	'uses'   => 'VoucherController@postUpdateVoucher'
 	));
 
+	/*
+	*	Report Controller routes
+	*/
+	Route::get('report/bydate', array(
+			'as'	=>	'getReportByDate',
+			'uses'	=>	'ReportController@getReportByDate'
+		));
+
 
 });
 

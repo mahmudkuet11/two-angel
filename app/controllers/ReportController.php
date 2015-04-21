@@ -2,6 +2,11 @@
 
 class ReportController extends BaseController{
 
+
+	public function getReportByDate(){
+		return View::make('partials.report_by_date');
+	}
+
 		public function getReportBetween2Date(){
 			$sDate 			=	Input::get('start_date');
 			$eDate    		=  Input::get('end_date');
@@ -98,8 +103,6 @@ class ReportController extends BaseController{
 					 ))
 				->get();
 		}
-
-
 
 
 

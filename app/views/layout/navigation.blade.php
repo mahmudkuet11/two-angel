@@ -17,7 +17,6 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ URL::route('getNewVouchar') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;New Voucher</a></li>
             <li><a href="{{ URL::route('getSearchVouchar') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Voucher</a></li>
-			<li><a href="view_voucher.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>&nbsp;&nbsp;View Voucher</a></li>
           </ul>
         </li>
 		
@@ -25,10 +24,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stock <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ URL::route('getAddNewProduct') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Add New Product</a></li>
-			<li class="divider"></li>
-            <li><a href="edit_product.html"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;Edit Product</a></li>
+			      <li class="divider"></li>
             <li><a href="{{ URL::route('getSearchProduct') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Product</a></li>
-            <li><a href="delete_product.html"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Product</a></li>
+            
           </ul>
         </li>
 		
@@ -51,7 +49,7 @@
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Report <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Report by Date</a></li>
+            <li><a href="{{ URL::route('getReportByDate') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Report by Date</a></li>
           </ul>
         </li>
     </ul>

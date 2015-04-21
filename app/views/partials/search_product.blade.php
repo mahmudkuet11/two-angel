@@ -137,7 +137,10 @@
 				
 				var obj1 = $(obj).closest("tr");
 				option.category = $(".category", obj1).html();
-				option.date = $(".date", obj1).html();
+
+				var date = $(".date", obj1).html().split(" ");
+				option.date = date[0];
+				console.log(option.date);
 				option.purchase_price = $(".purchase_price", obj1).html();
 				option.sell_price = $(".sell_price", obj1).html();
 				console.log(option);
@@ -151,8 +154,26 @@
 			}
 
 			$("#update_product_save_button").click(function(){
+
+					if($("#inputPurchasePrice").val() == '' || $("#inputPurchasePrice").val() == 0){
+						alert("purchase price can not be empty or 0");
+						return;
+					}
+
+					if($("#inputSellPrice").val() == '' || $("#inputSellPrice").val() == 0){
+						alert("sell price can not be empty or 0");
+						return;
+					}
+
+					option.purchase_price = $("#inputPurchasePrice").val();
+					option.sell_price = $("#inputSellPrice").val();
+
 					$.post("{{ URL::route('postEditProduct') }}", option, function(data){
-						console.log(data);
+						if(data == 'Success'){
+							location.reload();
+						}else{
+							alert("something goes wrong !!!");
+						}
 					});
 				});
 
