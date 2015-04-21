@@ -37,6 +37,7 @@
 										<h3>20-05-2015 &nbsp;&nbsp;To &nbsp;&nbsp;25-05-2015</h3>
 									</div>
 								</div>
+								<h2>Sell Report</h2><hr/>
 								<table class="table table-striped table-hover ">
 								  <thead>
 									<tr>
@@ -46,11 +47,10 @@
 									  <th>Paid</th>
 									  <th>Due</th>
 									  <th>Purchase</th>
-									  <th>Expense</th>
 									  <th>Profit</th>
 									</tr>
 								  </thead>
-								  <tbody id="report_by_date_table">
+								  <tbody id="sell_report_by_date">
 									<tr>
 										<td>15-04-2015</td>
 										<td>1000</td>
@@ -58,38 +58,40 @@
 										<td>750</td>
 										<td>150</td>
 										<td>500</td>
-										<td>50</td>
 										<td>350</td>
 									</tr>
 									<tr>
-										<td>15-04-2015</td>
-										<td>1000</td>
-										<td>100</td>
-										<td>750</td>
-										<td>150</td>
-										<td>500</td>
-										<td>50</td>
-										<td>350</td>
-									</tr>
-									<tr>
-										<td>15-04-2015</td>
-										<td>1000</td>
-										<td>100</td>
-										<td>750</td>
-										<td>150</td>
-										<td>500</td>
-										<td>50</td>
-										<td>350</td>
-									</tr>
-									<tr style="color:#2196f3;">
 										<td>Total</td>
-										<td>3000</td>
-										<td>300</td>
-										<td>2250</td>
-										<td>450</td>
-										<td>1500</td>
+										<td>1000</td>
+										<td>100</td>
+										<td>750</td>
 										<td>150</td>
-										<td>1050</td>
+										<td>500</td>
+										<td>350</td>
+									</tr>
+								  </tbody>
+								</table>
+
+								<h2>Expense Report</h2><hr/>
+								<table class="table table-striped table-hover ">
+								  <thead>
+									<tr>
+									  <th>Date</th>
+									  <th>name</th>
+									  <th>Note</th>
+									  <th>Amount</th>
+									</tr>
+								  </thead>
+								  <tbody id="expense_report_by_date">
+									<tr>
+										<td>15-04-2015</td>
+										<td>Rickshaw</td>
+										<td>desc</td>
+										<td>20</td>
+									</tr>
+									<tr>
+										<td colspan="3" style="text-align:right;">Total</td>
+										<td>2000</td>
 									</tr>
 								  </tbody>
 								</table>
@@ -104,7 +106,6 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 
-				$("#report_by_date_table").html("<h1>Please select date to view report.</h1>");
 
 				$("#search_report_button").click(function(){
 
@@ -116,6 +117,8 @@
 
 
 				});
+
+				
 
 			});
 		</script>
