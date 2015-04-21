@@ -149,6 +149,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 * -------------------Testting Suit----------
 */
 
+Route::get('/report/category', array(
+		'as'	=>	'/report/category',
+		'uses'	=>	'ReportController@getCategoryReport'
+	));
+Route::get('/report/product', array(
+		'as'	=>	'/report/product',
+		'uses'	=>	'ReportController@getRemainingProductReport'
+	));
 Route::get('/report/purchase', array(
 		'as'	=>	'/report/purchase',
 		'uses'	=>	'ReportController@getPurchaseReport'
