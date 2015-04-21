@@ -26,6 +26,16 @@ class ProductController extends BaseController{
    			 			)
 				);
 		}
+		DB::table('all_products_purchase')->insert(
+			array(
+			    	    'category'				=> $category,
+			       	    'suppllier'				=> $supplier,
+			   			'purchase_price'		=> $purchase_price,
+			   		 	'sell_price' 			=> $sell_price,
+			   		 	'quantity'				=> $quantity,
+			   		 	'total_purchase_price'	 => $purchase_price*$quantity
+				)
+			);
 		$old =  DB::table('categories')->select('quantity')
 		->where('name', '=', $category)->first();
 

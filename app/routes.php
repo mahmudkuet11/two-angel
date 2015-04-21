@@ -148,6 +148,20 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
+
+Route::get('/report/purchase', array(
+		'as'	=>	'/report/purchase',
+		'uses'	=>	'ReportController@getPurchaseReport'
+	));
+Route::get('/report/expense', array(
+		'as'	=>	'/report/expense',
+		'uses'	=>	'ReportController@getExpensesReport'
+	));
+Route::get('/report', array(
+		'as'	=>	'/report',
+		'uses'	=>	'ReportController@getReportBetween2Date'
+	));
+
 Route::get('/test/product/update', array(
 		'as'	=>	'/test/product/update',
 		'uses'	=>	'ProductController@postEditProduct'
