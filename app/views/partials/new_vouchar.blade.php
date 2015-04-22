@@ -197,7 +197,12 @@
 						return;
 					}
 					if(!pattern.test($("#inputPaid").val())){
-						alert("invalid input in paid field");
+						alert("invalid input in paid amount field");
+						return;
+					}
+
+					if($("#inputPaid").val() == ""){
+						alert("please enter paid amount");
 						return;
 					}
 					
@@ -224,9 +229,12 @@
 					vouchar.paid 			= paid;
 					vouchar.due 			= due;
 					
-					$.post("http://localhost/ta/public/vouchar/newww", vouchar, function(data){
+					$.post("{{ URL::route('postNewVoucher') }}", vouchar, function(data){
 						//console.log(vouchar);
 						console.log(data);
+						if(data == "Success"){
+							alert("new voucher has been added successfully");
+						}
 					});
 
 				});

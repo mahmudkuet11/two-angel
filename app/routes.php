@@ -152,6 +152,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 	'as'     =>'postUpdateVoucher',
 	'uses'   => 'VoucherController@postUpdateVoucher'
 	));
+	Route::post('/vouchar/new', array(
+	'as'     =>'postNewVoucher',
+	'uses'   => 'VoucherController@postConfirmVoucher'
+	));
 
 	/*
 	*	Report Controller routes
@@ -220,10 +224,7 @@ Route::get('/voucher/updatevoucher', array(
 	'as'     =>'/updatevoucher',
 	'uses'   => 'VoucherController@getUpdateVoucher'
 	));
-Route::post('/vouchar/newww', array(
-	'as'     =>'/vouchar/newww',
-	'uses'   => 'VoucherController@postConfirmVoucher'
-	));
+
 Route::get('/vd', array(
 	'as'     =>'/vd',
 	'uses'   => 'VoucherController@getVoucherListByDate'

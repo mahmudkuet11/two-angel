@@ -16,6 +16,7 @@
         {{ HTML::style('css/normalize.css') }}
         {{ HTML::style('css/main.css') }}
         {{ HTML::script('js/vendor/modernizr-2.6.2.min.js') }}
+        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -29,7 +30,7 @@
 						<div class="panel panel-default">
 							<div class="panel-body">
 
-<form class="form-horizontal" method="post" action="{{ URL::route('postchangePassword') }}">
+<form id="change_password_form" class="form-horizontal" method="post" action="{{ URL::route('postchangePassword') }}">
 	<fieldset>
 	    <legend>Change Password</legend>
 		
@@ -62,7 +63,7 @@
 	    
 		<div class="form-group">
 	      <div class="col-md-10 col-md-offset-2">
-	        <button type="submit" class="btn btn-primary">Change password</button>
+	        <button type="button" class="btn btn-primary" id="change_password_button">Change password</button>
 	        <a class="btn btn-primary" href="{{ URL::route('getHome') }}">Return Home</a>
 	      </div>
 	    </div>
@@ -76,10 +77,42 @@
 				</div>
 			</div>
 		</div>
+
+
+		<script type="text/javascript">
+
+
+			$(document).ready(function(){
+
+				$("#change_password_button").click(function(){
+					if($("#inputUsername").val() == ""){
+						alert("please enter username");
+						return;
+					}
+
+					if($("#inputCurrentPassword").val() == ""){
+						alert("please enter current password");
+						return;
+					}
+
+					if($("#inputNewPassword").val() == ""){
+						alert("please enter new password");
+						return;
+					}
+
+					$("#change_password_form").submit();
+				});
+
+
+
+			});
+
+
+		</script>
+
 		
-        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
+        
         {{ HTML::script('js/bootstrap.min.js') }}
-        {{ HTML::script('js/plugins.js') }}
         {{ HTML::script('js/main.js') }}
 
     </body>
