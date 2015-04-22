@@ -36,8 +36,11 @@ class ReportController extends BaseController{
 			return json_encode($res);
 		}
 
+		public function getExpenseReport(){
+			return View::make('partials.expense_report');
+		}
 
-		public function getExpensesReport(){
+		public function postExpenseReport(){
 			$sDate 			=	Input::get('start_date');
 			$eDate    		=  Input::get('end_date');
 			return DB::table('expenses')
@@ -72,9 +75,14 @@ class ReportController extends BaseController{
 				->get();
 
 		}
+
 		public function getRemainingProductReport(){
-				$sDate 			=	Input::get('start_date');
-				$eDate    		=  Input::get('end_date');
+			return View::make('partials.remaining_product_report');
+		}
+
+		public function postRemainingProductReport(){
+				/*$sDate 			=	Input::get('start_date');
+				$eDate    		=  Input::get('end_date');*/
 
 				return DB::table('products')
 				 ->select(DB::raw(
@@ -85,7 +93,6 @@ class ReportController extends BaseController{
 				 	COUNT(*) as quantity,
 				 	CAST(date AS DATE) as date'
 					 ))
-				->whereBetween('date', array($sDate." "."00:00:00", $eDate." "."23:59:59"))
 				->groupBy('category')
 				->groupBy('purchase_price')
 				->groupBy('sell_price')

@@ -169,6 +169,22 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'getDueReport',
 			'uses'	=>	'ReportController@getDueReport'
 		));
+	Route::get('report/expense', array(
+			'as'	=>	'getExpenseReport',
+			'uses'	=>	'ReportController@getExpenseReport'
+		));
+	Route::post('report/expense', array(
+			'as'	=>	'postExpenseReport',
+			'uses'	=>	'ReportController@postExpenseReport'
+		));
+	Route::get('report/remaining', array(
+			'as'	=>	'getRemainingProductReport',
+			'uses'	=>	'ReportController@getRemainingProductReport'
+		));
+	Route::post('report/remaining', array(
+			'as'	=>	'postRemainingProductReport',
+			'uses'	=>	'ReportController@postRemainingProductReport'
+		));
 });
 
 
@@ -188,10 +204,7 @@ Route::get('/report/purchase', array(
 		'as'	=>	'/report/purchase',
 		'uses'	=>	'ReportController@getPurchaseReport'
 	));
-Route::get('/report/expense', array(
-		'as'	=>	'/report/expense',
-		'uses'	=>	'ReportController@getExpensesReport'
-	));
+
 
 
 Route::get('/test/product/update', array(

@@ -8,6 +8,14 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-body">
+
+					<div class="row">
+						<div class="col-md-12" style="text-align:center;">
+							<h2>Two Angels</h2>
+							<h4>Due Report</h4>
+						</div>
+					</div>
+
 					<table class="table table-striped table-hover ">
 					  <thead>
 						<tr>
