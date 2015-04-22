@@ -328,4 +328,10 @@ body{
     #search_report_field{
         display:none !important;
     }
+    a[href]:after {
+        content: none !important;
+    }
+}
+.badge{
+    background: #e74c3c !important;
 }

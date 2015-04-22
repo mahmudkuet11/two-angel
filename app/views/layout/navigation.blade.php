@@ -33,7 +33,6 @@
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expense <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-			<li><a href="purchase_cost.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Purchase Cost</a></li>
             <li><a href="{{ URL::route('getAddNewExpense') }}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;&nbsp;Other Expense</a></li>
           </ul>
     </li>
@@ -50,14 +49,25 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Report <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ URL::route('getReportByDate') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Report by Date</a></li>
+
+            <li><a href="{{ URL::route('getDueReport') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Due Report</a></li>
+
           </ul>
-        </li>
+    </li>
+      <?php
+          $count = 0;
+          foreach (ProductHelper::getCountLowStock() as $a) {
+            $count = $a->count;
+          }
+      ?>
+    {{ $count > 0 ? '<li><a href="'. URL::route('getLowStockCategory') .'">Low Stock&nbsp;<span class="badge">'.$count.'</span></a></li>' : '' }}
     </ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
 			  <ul class="dropdown-menu" role="menu">
-				<li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;Logout</a></li>
+				<li><a href="{{ URL::route('getLogout') }}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;Logout</a></li>
+        <li><a href="{{ URL::route('getchangePassword') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;Change Password</a></li>
 			  </ul>
 			</li>
 		</ul>

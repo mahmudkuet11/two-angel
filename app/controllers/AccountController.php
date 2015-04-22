@@ -57,8 +57,8 @@ class AccountController extends BaseController{
 	}
 	public function postUpdatePassword(){
 		$username = Input::get('username');
-		$new_password = Input::ge('new_password');	
-		$old_password = Input::ge('old_password');	
+		$new_password = Input::get('new_password');	
+		$old_password = Input::get('old_password');	
 
 		$user = DB::table('users')->where('username', $username)->first();
 		if($user){
@@ -66,15 +66,21 @@ class AccountController extends BaseController{
 				DB::table('users')
           		  ->where('username', '=', $username)
             		->update(array('password' => Hash::make($new_password)));
+            	return Redirect::route('getchangePassword')->with('message', 'password has been updated successfully');
 			}else{
-				return Redirect::route('getChangePassowrd')->with('password_error', 'Password is incorrect!');
+				return Redirect::route('getchangePassword')->with('password_error', 'Password is incorrect!');
 			}
 		}else{
-			return Redirect::route('getChangePassowrd')->with(array(
+			return Redirect::route('getchangePassword')->with(array(
 					'username_error'	=>	'This username does not exist!',
 					'username'			=>	$username
 				));
 		}
 	}
+
+	public function getchangePassword(){
+		return View::make('partials.change_password');
+	}
+
 
 }

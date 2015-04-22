@@ -33,6 +33,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'as'	=>	'getLogout',
 		'uses'	=>	'AccountController@getLogout'
 	));
+	Route::get('/password/change', array(
+		'as'	=>	'getchangePassword',
+		'uses'	=>	'AccountController@getchangePassword'
+	));
+	Route::post('/password/change', array(
+		'as'	=>	'postchangePassword',
+		'uses'	=>	'AccountController@postUpdatePassword'
+	));
 	
 	/*
 	*	----- Home controller routes
@@ -78,6 +86,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 	Route::post('/category/add', array(
 			'as'	=>	'postAddNewCategory',
 			'uses'	=>	'CategoryController@postAddNewCategory'
+		));
+	Route::get('/stock/low', array(
+			'as'	=>	'getLowStockCategory',
+			'uses'	=>	'CategoryController@getLowStockCategory'
 		));
 
 	/*
@@ -153,7 +165,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 		'uses'	=>	'ReportController@getReportBetween2Date'
 	));
 
-
+	Route::get('report/due', array(
+			'as'	=>	'getDueReport',
+			'uses'	=>	'ReportController@getDueReport'
+		));
 });
 
 

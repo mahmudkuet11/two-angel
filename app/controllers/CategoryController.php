@@ -22,4 +22,8 @@ class CategoryController extends BaseController{
 		return Redirect::route('getAddNewCategory')->with('msg', 'Category has been added successfully');
 	}
 
+	public function getLowStockCategory(){
+		return View::make('partials.low_stock');
+	}
+
 }

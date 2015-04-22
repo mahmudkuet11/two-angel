@@ -104,6 +104,11 @@ class ReportController extends BaseController{
 				->get();
 		}
 
+		public function getDueReport(){
+			return View::make('partials.due_report');
+		}
+
 
 
 }
+

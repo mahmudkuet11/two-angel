@@ -1,11 +1,5 @@
 $(document).ready(function(){
 
-
-
-
-
-
-
 	/*
 	*	Search Voucher
 	*/
