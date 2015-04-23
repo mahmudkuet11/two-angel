@@ -58,11 +58,11 @@
 									  </tbody>
 									</table>
 									===============================================<br/>
-									Purchased by Mahmdur Rahman<br/>
+									Purchased by <span id="invoice_customer_name"><br/>
 									===============================================<br/>
 									Like us on www.facebook.com/2angels.supershop<br/>
 									===============================================<br/>
-									Software Developped By UniTech4U
+									Software Developped By UniTech4U (+88-01611-200027)
 
 								</div>
 							</div>
@@ -323,6 +323,8 @@
 							var timestamp = new Date();
 							var date = timestamp.toLocaleDateString() + " -- Time: " + timestamp.getHours() + ":" + timestamp.getMinutes() + ":" + timestamp.getSeconds();
 							$("#final_voucher_date").html(date);
+							$("#invoice_customer_name").html($("#inputName").val());
+							//setTimeout(function(){ window.print(); }, 1000);
 
 
 						}
