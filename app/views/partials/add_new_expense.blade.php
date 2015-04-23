@@ -7,7 +7,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
-								<form class="form-horizontal" method="post" action="{{ URL::route('postAddNewExpense') }}">
+								<form id="add_new_expense_form" class="form-horizontal" method="post" action="{{ URL::route('postAddNewExpense') }}">
 								  <fieldset>
 									<legend>Add New Expense</legend>
 									<hr />
@@ -41,7 +41,7 @@
 									</div>
 
 									<div class="col-md-10 col-md-offset-2">
-										<button type="submit" class="btn btn-primary">Save</button>
+										<button type="button" class="btn btn-primary" id="add_new_expense_button">Save</button>
 									  </div>
 									</div>
 
@@ -52,5 +52,30 @@
 					</div>
 				</div>
 		</div>
+
+		<script type="text/javascript">
+
+
+			$(document).ready(function(){
+
+				$("#add_new_expense_button").click(function(){
+					if($("#inputExpenseName").val() == ""){
+						alert("please enter expense name");
+						return;
+					}
+
+					if($("#inputExpenseAmount").val() == ""){
+						alert("please enter expense amount");
+						return;
+					}
+					$("#add_new_expense_form").submit();
+				});
+
+
+
+			});
+
+
+		</script>
 
 @stop

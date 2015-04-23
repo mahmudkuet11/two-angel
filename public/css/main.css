@@ -323,3 +323,15 @@ body{
 	overflow-y:scroll;
 	height:310px;
 }
+
+@media print{
+    #search_report_field{
+        display:none !important;
+    }
+    a[href]:after {
+        content: none !important;
+    }
+}
+.badge{
+    background: #e74c3c !important;
+}

@@ -7,7 +7,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
-								<form class="form-horizontal" method="post" action="{{ URL::route('postAddNewSupplier') }}">
+								<form id="add_new_supplier_form" class="form-horizontal" method="post" action="{{ URL::route('postAddNewSupplier') }}">
 								  <fieldset>
 									<legend>Add New Supplier</legend>
 									<hr />
@@ -42,7 +42,7 @@
 
 									<div class="form-group">
 									  <div class="col-md-10 col-md-offset-2">
-										<button type="submit" class="btn btn-success">Add Supplier</button>
+										<button type="button" class="btn btn-primary" id="add_supplier_button">Add Supplier</button>
 									  </div>
 									</div>
 
@@ -53,5 +53,24 @@
 					</div>
 				</div>
 		</div>
+
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$("#add_supplier_button").click(function(){
+					if($("#inputSupplierName").val() == ""){
+						alert("please enter supplier name");
+						return;
+					}
+
+					$("#add_new_supplier_form").submit();
+				});
+
+
+
+			});
+
+		</script>
 
 @stop

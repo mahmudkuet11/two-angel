@@ -15,9 +15,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sell <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="new_voucher.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;New Voucher</a></li>
-            <li><a href="search_voucher.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Voucher</a></li>
-			<li><a href="view_voucher.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>&nbsp;&nbsp;View Voucher</a></li>
+            <li><a href="{{ URL::route('getNewVouchar') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;New Voucher</a></li>
+            <li><a href="{{ URL::route('getSearchVouchar') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Voucher</a></li>
           </ul>
         </li>
 		
@@ -25,17 +24,15 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stock <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ URL::route('getAddNewProduct') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Add New Product</a></li>
-			<li class="divider"></li>
-            <li><a href="edit_product.html"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;Edit Product</a></li>
-            <li><a href="view_product.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;View Product</a></li>
-            <li><a href="delete_product.html"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Product</a></li>
+			      <li class="divider"></li>
+            <li><a href="{{ URL::route('getSearchProduct') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Search Product</a></li>
+            
           </ul>
         </li>
 		
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expense <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-			<li><a href="purchase_cost.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Purchase Cost</a></li>
             <li><a href="{{ URL::route('getAddNewExpense') }}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;&nbsp;Other Expense</a></li>
           </ul>
     </li>
@@ -51,15 +48,30 @@
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Report <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Demo menu item</a></li>
+            <li><a href="{{ URL::route('getReportByDate') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Net Profit Report By Date</a></li>
+
+            <li><a href="{{ URL::route('getDueReport') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Due Report</a></li>
+
+            <li><a href="{{ URL::route('getExpenseReport') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Expense Report</a></li>
+
+            <li><a href="{{ URL::route('getRemainingProductReport') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Remaining Products Report</a></li>
+
           </ul>
-        </li>
-      </ul>
+    </li>
+      <?php
+          $count = 0;
+          foreach (ProductHelper::getCountLowStock() as $a) {
+            $count = $a->count;
+          }
+      ?>
+    {{ $count > 0 ? '<li><a href="'. URL::route('getLowStockCategory') .'">Low Stock&nbsp;<span class="badge">'.$count.'</span></a></li>' : '' }}
+    </ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
 			  <ul class="dropdown-menu" role="menu">
-				<li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;Logout</a></li>
+				<li><a href="{{ URL::route('getLogout') }}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;Logout</a></li>
+        <li><a href="{{ URL::route('getchangePassword') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;Change Password</a></li>
 			  </ul>
 			</li>
 		</ul>

@@ -7,7 +7,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
-								<form class="form-horizontal" method="post" action="{{ URL::route('postAddNewCategory') }}">
+								<form id="add_new_category_form" class="form-horizontal" method="post" action="{{ URL::route('postAddNewCategory') }}">
 								  <fieldset>
 									<legend>Add New Category</legend>
 									<hr />
@@ -42,7 +42,7 @@
 
 									<div class="form-group">
 									  <div class="col-md-10 col-md-offset-2">
-										<button type="submit" class="btn btn-success">Add Category</button>
+										<button type="button" class="btn btn-primary" id="add_new_category_button">Add Category</button>
 									  </div>
 									</div>
 
@@ -53,5 +53,36 @@
 					</div>
 				</div>
 		</div>
+
+		<script type="text/javascript">
+
+
+			$(document).ready(function(){
+
+				$("#add_new_category_button").click(function(){
+					if($("#inputCategoryName").val() == ""){
+						alert("please enter category name");
+						return;
+					}
+
+					if($("#inputManufacturer").val() == ""){
+						alert("please enter manufacturer name");
+						return;
+					}
+
+					if($("#inputWarningQty").val() == ""){
+						alert("please enter warning quantity");
+						return;
+					}
+
+					$("#add_new_category_form").submit();
+				});
+
+
+
+			});
+
+
+		</script>
 
 @stop

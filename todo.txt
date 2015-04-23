@@ -1,3 +1,3 @@
 1. font install
-2. products to be added sidebar count
 3. vouchar javascript get rout should be changed
+6. password change

@@ -94,4 +94,48 @@
 
 		</div>
 
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$("#add_new_product_btn").click(function(){
+					if($("#inputBarCode").val() == ""){
+						alert("Please enter barcode");
+						return;
+					}
+
+					if($("#inputQty").val() == ""){
+						alert("Please enter quantity");
+						return;
+					}
+
+					if($("#inputProductCategory").val() == ""){
+						alert("Please select a category");
+						return;
+					}
+
+					if($("#inputSupplier").val() == ""){
+						alert("Please select a supplier");
+						return;
+					}
+
+					if($("#inputPrice").val() == ""){
+						alert("Please enter purchase price");
+						return;
+					}
+
+					if($("#inputRate").val() == ""){
+						alert("Please enter sell price");
+						return;
+					}
+
+					$("#add_new_product_form").submit();
+					
+				});
+
+
+
+			});
+		</script>
+
+
 @stop

@@ -14,8 +14,10 @@
 
         {{ HTML::style('css/paper.css') }}
         {{ HTML::style('css/normalize.css') }}
+        {{ HTML::style('css/datepicker.css') }}
         {{ HTML::style('css/main.css') }}
         {{ HTML::script('js/vendor/modernizr-2.6.2.min.js') }}
+        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,9 +28,10 @@
 
       @yield('content')
 
-        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
+        
         {{ HTML::script('js/bootstrap.min.js') }}
         {{ HTML::script('js/plugins.js') }}
+        {{ HTML::script('js/vendor/bootstrap-datepicker.js') }}
         {{ HTML::script('js/main.js') }}
 
     </body>
