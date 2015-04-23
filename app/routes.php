@@ -105,7 +105,7 @@ Route::group(array('before'	=>	'login_required'), function(){
 /*
 * -------------------Testting Suit----------
 */
-Route::get('/pd', array(
+Route::post('/pd', array(
 		'as'	=>	'/pd',
 		'uses'	=>	'VoucherController@getProductDetails'
 	));
