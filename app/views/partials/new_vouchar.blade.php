@@ -8,6 +8,71 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
+
+
+							<div class="row" id="final_invoice">
+								<div class="col-md-12">
+									<h3>New Two Angels Super Shop</h3>
+									<p>
+										Sheikh Sahid Villa <br/>
+										646 Mozgunni R/A, Boyra main road, Khulna<br/>
+										Cell: +88-01535-453153<br/>
+										Date: <span id="final_voucher_date"></span><br/>
+										===============================================
+									</p>
+									<table class="table table-striped table-hover" id="">
+									  <thead>
+									    <tr>
+									      <th>Item</th>
+									      <th>Qty</th>
+									      <th>Amount</th>
+									    </tr>
+									  </thead>
+									  <tbody id="final_invoice_table">
+									    <tr>
+									    	<td>lux 20g</td>
+									    	<td>2</td>
+									    	<td>25 X 2</td>
+									    </tr>
+									    <tr>
+									    	<td>lux 20g</td>
+									    	<td>2</td>
+									    	<td>25 X 2</td>
+									    </tr>
+									    <tr>
+									    	<td colspan="2" style="text-align:right">Total</td>
+									    	<td>200</td>
+									    </tr>
+									    <tr>
+									    	<td colspan="2" style="text-align:right">Discount</td>
+									    	<td>20</td>
+									    </tr>
+									    <tr>
+									    	<td colspan="2" style="text-align:right">Paid</td>
+									    	<td>150</td>
+									    </tr>
+									    <tr>
+									    	<td colspan="2" style="text-align:right">Due</td>
+									    	<td>50</td>
+									    </tr>
+									  </tbody>
+									</table>
+									===============================================<br/>
+									Purchased by Mahmdur Rahman<br/>
+									===============================================<br/>
+									Like us on www.facebook.com/2angels.supershop<br/>
+									===============================================<br/>
+									Software Developped By UniTech4U
+
+								</div>
+							</div>
+
+ 
+
+
+
+							<div id="hide_able1">
+
 									<legend>New Voucher</legend>
 
 									<div class="form-group">
@@ -30,11 +95,12 @@
 										<textarea class="form-control" id="inputAddress"> </textarea>
 									  </div>
 									</div>
-
+								</div>
 							</div>
+
 						</div>
 						
-						<div class="panel panel-default">
+						<div class="panel panel-default" id="hide_able2">
 							<div class="panel-body">
 								
 									<div class="form-group">
@@ -100,6 +166,9 @@
 
 		<script type="text/javascript">
 			$(document).ready(function(){
+
+
+				$("#final_invoice").hide();
 
 				/*
 				*	Vouchar bar code scanner and update cart list
@@ -230,10 +299,32 @@
 					vouchar.due 			= due;
 					
 					$.post("{{ URL::route('postNewVoucher') }}", vouchar, function(data){
-						//console.log(vouchar);
-						console.log(data);
+						
+						$("#final_invoice").show();
+						$("#hide_able1").hide();
+						$("#hide_able2").hide();
+
 						if(data == "Success"){
-							alert("new voucher has been added successfully");
+							
+
+							$("#final_invoice_table").html("");
+							var items = {};
+							$("#cart tr").each(function(index){
+								items.cat = $(".category", this).html();
+								items.qty = $(".quantity", this).html();
+								items.unit_price = $(".unit_price", this).html();
+								$("#final_invoice_table").append('<tr><td>'+ items.cat +'</td><td>'+ items.qty +'</td><td>'+ items.unit_price +' X '+ items.qty +'</td></tr>');
+
+								
+							});
+
+							$("#final_invoice_table").append('<tr><td colspan="2" style="text-align:right">Total</td><td>'+ $("#total_price").text() +'</td></tr><tr><td colspan="2" style="text-align:right">Discount</td><td>'+ $("#inputDiscount").val() +'</td></tr><tr><td colspan="2" style="text-align:right">Paid</td><td>'+ $("#inputPaid").val() +'</td></tr><tr><td colspan="2" style="text-align:right">Due</td><td>'+ $("#inputDue").val() +'</td></tr>');
+
+							var timestamp = new Date();
+							var date = timestamp.toLocaleDateString() + " -- Time: " + timestamp.getHours() + ":" + timestamp.getMinutes() + ":" + timestamp.getSeconds();
+							$("#final_voucher_date").html(date);
+
+
 						}
 					});
 
