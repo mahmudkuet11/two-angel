@@ -16,9 +16,15 @@ Route::group(array('before'	=>	'logout_required'), function(){
 			'as'	=>	'postLogin',
 			'uses'	=>	'AccountController@postLogin'
 		));
+
+
+
 });
 
-
+	Route::get('/barcode', array(
+			'as'	=>	'getBarcode',
+			'uses'	=>	'BarcodeController@getBarcode'
+		));
 
 
 /*

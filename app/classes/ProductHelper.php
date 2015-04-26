@@ -13,4 +13,5 @@ class ProductHelper{
 	public static function getLowStockCategory(){
 		return DB::select(DB::raw("select * from categories where quantity <= warning_quantity"));
 	}
+
 }

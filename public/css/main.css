@@ -325,7 +325,7 @@ body{
 }
 
 @media print{
-    #search_report_field{
+    #search_report_field, #hideable_row{
         display:none !important;
     }
     a[href]:after {
@@ -335,3 +335,52 @@ body{
 .badge{
     background: #e74c3c !important;
 }
+.logo img{
+    width:100px;
+    height:64px;
+    margin-top: -20px;
+}
+.container{
+    background: url(../images/logo.png);
+    background-size: cover;
+}
+.logo_on_report, .logo_on_report img{
+    width:75px;
+    height:auto;
+    margin:0 auto;
+}
+.status_bar{
+    width:100%;
+    height:20px;
+    background-color:#222;
+    position:fixed;
+    bottom:0; 
+    color:#e1e1e1;
+}
+
+.icon_nav{
+  position: fixed;
+  left: -35px;
+  top: 75px;
+}
+.icon_nav ul{list-style: none;}
+.icon_nav ul li{
+    margin-bottom: 30px;
+}
+.icon_nav ul li a{
+    padding: 10px;
+    background: #1abc9c;
+    margin-right: 30px;
+    font-size: 20px;
+    color:#222;
+}
+.icon_nav ul a:hover{
+    background: #fff;
+    color:#222;
+}
+.icon_nav_row{
+      margin-left: -15px;
+      margin-right: -15px;
+      margin-top: -30px;
+}
+

@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Two Angels</a>
+      <a class="navbar-brand logo" href="{{ URL::route('getHome') }}"><img src="{{ URL::route('getHome') }}/images/logo.png"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -42,6 +42,10 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ URL::route('getAddNewCategory') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Add New Category</a></li>
             <li><a href="{{ URL::route('getAddNewSupplier') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Add New Supplier</a></li>
+
+
+            <li><a href="{{ URL::route('getBarcode') }}"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>&nbsp;&nbsp;Create Barcode</a></li>
+
           </ul>
     </li>
 		

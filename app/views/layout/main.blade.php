@@ -26,9 +26,38 @@
 
       @include('layout.navigation')
 
+              <div class="icon_nav"  id="hideable_row">
+                  <ul>
+                      <li><a href="{{ URL::route('getNewVouchar') }}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+                      <li><a href="{{ URL::route('getSearchVouchar') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+                      <li><a href="{{ URL::route('getAddNewProduct') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+                      <li><a href="{{ URL::route('getAddNewExpense') }}"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a></li>
+                      <li><a href="{{ URL::route('getReportByDate') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></li>
+                      <li><a href="{{ URL::route('getDueReport') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></li>
+                      <li><a href="{{ URL::route('getBarcode') }}"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span></a></li>
+                  </ul>
+              </div>
+
+
       @yield('content')
 
         
+        <div class="status_bar">
+            <marquee>
+                Software Developed by <a href="www.unitech4u.com">UniTech4U</a>, Morol Plaza, 1st floor,
+
+                K.D.A Plot #29,30. Badamtala, Khulna.
+
+                Telephone : 041-786177
+
+                Mobile : +88 01789200027, +88 01954160203
+
+                Email : info@unitech4u.com
+                website : www.unitech4u.com
+            </marquee>
+
+        </div>
+
         {{ HTML::script('js/bootstrap.min.js') }}
         {{ HTML::script('js/plugins.js') }}
         {{ HTML::script('js/vendor/bootstrap-datepicker.js') }}

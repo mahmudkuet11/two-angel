@@ -11,7 +11,10 @@
 
 					<div class="row">
 						<div class="col-md-12" style="text-align:center;">
-							<h2>Two Angels</h2>
+							<div class="logo_on_report">
+								<img src="{{ URL::route('getHome') }}/images/logo-b.png">
+							</div>
+							<h2>New Two Angels</h2>
 							<h4>Due Report</h4>
 						</div>
 					</div>

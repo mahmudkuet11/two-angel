@@ -33,7 +33,10 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12" style="text-align:center;">
-										<h2>Two Angels</h2>
+										<div class="logo_on_report">
+											<img src="{{ URL::route('getHome') }}/images/logo-b.png">
+										</div>
+										<h2>New Two Angels</h2>
 										<h4>Sell & Expense Report</h4>
 										<h3 id="report_show_date"></h3>
 									</div>

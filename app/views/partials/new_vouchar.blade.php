@@ -12,6 +12,9 @@
 
 							<div class="row" id="final_invoice">
 								<div class="col-md-12">
+									<div class="logo_on_report">
+										<img src="{{ URL::route('getHome') }}/images/logo-b.png">
+									</div>
 									<h3>New Two Angels Super Shop</h3>
 									<p>
 										Sheikh Sahid Villa <br/>
@@ -57,12 +60,17 @@
 									    </tr>
 									  </tbody>
 									</table>
-									===============================================<br/>
-									Purchased by <span id="invoice_customer_name"><br/>
-									===============================================<br/>
-									Like us on www.facebook.com/2angels.supershop<br/>
-									===============================================<br/>
-									Software Developped By UniTech4U (+88-01611-200027)
+									<div class="row">
+										<div class="col-md-12">
+											===============================================<br/>
+											Purchased by <span id="invoice_customer_name"></span><br/>
+											===============================================<br/>
+											Like us on www.facebook.com/2angels.supershop<br/>
+											===============================================<br/>
+											Software Developped By UniTech4U (+88-01611-200027)
+										</div>
+									</div>
+									
 
 								</div>
 							</div>
