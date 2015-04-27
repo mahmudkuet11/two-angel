@@ -232,6 +232,10 @@
 
 								$('#total_price').html(total);
 
+								$("#inputPaid").val(total);
+								$("#inputDiscount").val(0);
+
+
 						});
 					}
 
@@ -253,7 +257,8 @@
 					var paid 		= parseFloat($("#inputPaid").val()); 
 
 
-					$("#inputDue").val(total - discount - paid);
+					$("#inputPaid").val(total - discount);
+					$("#inputDue").val(0);
 				});	
 
 

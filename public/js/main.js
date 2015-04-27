@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+
+	$("#print_btn").click(function(){
+		window.print();
+	});
+
+
+
 	/*
 	*	Search Voucher
 	*/

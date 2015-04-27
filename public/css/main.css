@@ -325,7 +325,7 @@ body{
 }
 
 @media print{
-    #search_report_field, #hideable_row{
+    #search_report_field, #hideable_row, .status_bar{
         display:none !important;
     }
     a[href]:after {
@@ -365,7 +365,7 @@ body{
 }
 .icon_nav ul{list-style: none;}
 .icon_nav ul li{
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .icon_nav ul li a{
     padding: 10px;

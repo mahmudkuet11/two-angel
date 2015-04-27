@@ -35,6 +35,7 @@
                       <li><a href="{{ URL::route('getReportByDate') }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></li>
                       <li><a href="{{ URL::route('getDueReport') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></li>
                       <li><a href="{{ URL::route('getBarcode') }}"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span></a></li>
+                      <li><a href="#" id="print_btn"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a></li>
                   </ul>
               </div>
 

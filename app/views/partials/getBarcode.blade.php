@@ -58,7 +58,7 @@
 					//console.log(new_barcode);
 					var str = new_barcode + '';
 					console.log(str);
-					str = str[5]+str[6]+str[7]+str[8]+str[9]+str[10]+str[11]+str[12];
+					//str = str[5]+str[6]+str[7]+str[8]+str[9]+str[10]+str[11]+str[12];
 					//console.log(str);
 					$(".all_barcode").append('<img style="float:left;margin-right:20px;margin-bottom:20px" src="http://localhost/ta/barcode/test_1D.php?barcode='+ str +'" />');
 				}
