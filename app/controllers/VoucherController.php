@@ -37,7 +37,8 @@ class VoucherController extends BaseController{
 
 
 	public function getProductDetails(){
-		return DB::table('categories')->select('category', 'sell_price', 'barcode')
+
+		return DB::table('categories')->select('name', 'sell_price', 'barcode', 'quantity')
 		->where('barcode', '=', Input::get("barcode"))->get();
 	}
 	public function getVoucherListByDate(){
