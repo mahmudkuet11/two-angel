@@ -159,7 +159,7 @@ Route::group(array('before'	=>	'login_required'), function(){
 	'uses'   => 'VoucherController@postUpdateVoucher'
 	));
 	Route::post('/vouchar/new', array(
-	'as'     =>'postNewVoucher',
+	'as'     =>'postConfirmVoucher',
 	'uses'   => 'VoucherController@postConfirmVoucher'
 	));
 
