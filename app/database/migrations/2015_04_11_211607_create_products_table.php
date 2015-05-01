@@ -12,17 +12,14 @@ class CreateProductsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create("products", function($table){
-			$table->string("barcode");
+	/*	Schema::create("products", function($table){
 			$table->string("category");
-			$table->string("suppllier");
-			$table->decimal("purchase_price", 6, 2);
-			$table->decimal("sell_price", 6, 2);
+
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
-			$table->primary('barcode');
 
 
-		});
+
+		});*/
 	}
 
 	/**
@@ -32,8 +29,9 @@ class CreateProductsTable extends Migration {
 	 */
 	public function down()
 	{
-
+		/*
 		Schema::dropIfExists('products');
+		*/
 
 	}
 
