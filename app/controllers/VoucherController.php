@@ -77,7 +77,7 @@ class VoucherController extends BaseController{
 					->where('name', '=', $info->name)->first();
 			$total_purchase = $total_purchase+ $info->purchase_price;
 
-			DB::table('categories')->where('name', $info->category)
+			DB::table('categories')->where('name', $info->name)
                ->update(array('quantity' => $old->quantity-1));
 		}	
 		 DB::table('vouchers')->insert(array(
