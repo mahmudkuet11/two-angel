@@ -9,8 +9,7 @@ class ProductController extends BaseController{
 		$barcode = Input::get("barcode");
 		$quantity = Input::get("quantity");
 		$category = Input::get('category');
-/*
-		DB::table('all_products_purchase')->insert(
+		/*DB::table('all_products_purchase')->insert(
 			array(
 			    	    'category'				=> $category,
 			   			'purchase_price'		=> $purchase_price,

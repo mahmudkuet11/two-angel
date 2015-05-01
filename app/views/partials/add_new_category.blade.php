@@ -47,6 +47,13 @@
 									  </div>
 									</div>
 
+									<div class="form-group">
+									  <label for="inputUnit" class="col-md-2 control-label">Unit</label>
+									  <div class="col-md-10">
+										<input type="text" name="unit" class="form-control" id="inputUnit" placeholder="ex: kg/Ltr/gm/cm">
+									  </div>
+									</div>
+
 
 									<div class="form-group">
 									  <label for="inputManufacturer" class="col-md-2 control-label">Manufacturer</label>
