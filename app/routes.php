@@ -129,10 +129,10 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'getNewVouchar',
 			'uses'	=>	'VoucherController@getNewVoucher'
 		));
-	Route::post('/vouchar/new', array(
+	/*Route::post('/vouchar/new', array(
 			'as'	=>	'postNewVouchar',
 			'uses'	=>	'VoucherController@postNewVoucher'
-		));
+		));*/
 	Route::get('/voucher/search', array(
 			'as'	=>	'getSearchVouchar',
 			'uses'	=>	'VoucherController@getSearchVoucher'

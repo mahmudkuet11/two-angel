@@ -212,7 +212,7 @@
 
 								$("#cart tr").each(function(index){
 									//console.log($(".category", this).html()); return;
-									if($(".category", this).html() == data[0].category){
+									if($(".category", this).html() == data[0].name){
 										found = true;
 										total += parseFloat(data[0].sell_price);
 										qty = $('.quantity', this).html();
@@ -227,7 +227,7 @@
 								if(found == false){
 									count++;
 									total += parseFloat(data[0].sell_price);
-									$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].category +'</td><td class="quantity">1</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">1</span></td></tr>');
+									$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].name +'</td><td class="quantity">1</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">1</span></td></tr>');
 								}
 
 								$('#total_price').html(total);
@@ -301,17 +301,17 @@
 					$("#barcode_list span").each(function(index){
 						barcode_list.push($(this).html());
 					});
-					console.log("bal");
 					vouchar.name 			= name;
 					vouchar.phone 			= phone;
 					vouchar.address 		= address;
 					vouchar.barcode_list	= JSON.stringify(barcode_list);
+					
 					vouchar.total 			= total;
 					vouchar.discount 		= discount;
 					vouchar.paid 			= paid;
 					vouchar.due 			= due;
 					
-					$.post("{{ URL::route('postNewVoucher') }}", vouchar, function(data){
+					$.post("{{ URL::route('postConfirmVoucher') }}", vouchar, function(data){
 						
 						$("#final_invoice").show();
 						$("#hide_able1").hide();
