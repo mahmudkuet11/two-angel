@@ -17,10 +17,10 @@ class CreateVouchersTable extends Migration {
 			$table->string("customer_name");
 			$table->string("address");
 			$table->string("phone");
-			$table->decimal("total_price", 6, 2);
-			$table->decimal("discount", 6, 2);
-			$table->decimal("paid", 6, 2);
-			$table->decimal("total_purchase_price", 6, 2);
+			$table->decimal("total_price", 12, 2);
+			$table->decimal("discount", 12, 2);
+			$table->decimal("paid", 12, 2);
+			$table->decimal("total_purchase_price", 12, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 		});
 

@@ -15,9 +15,9 @@ class CreateAllProductsPurchase extends Migration {
 		Schema::create("all_products_purchase", function($table){
 			$table->string("category");
 			$table->integer("quantity");
-			$table->decimal("purchase_price", 6, 2);
-			$table->decimal("sell_price", 6, 2);
-			$table->decimal("total_purchase_price", 6, 2);
+			$table->decimal("purchase_price", 12, 2);
+			$table->decimal("sell_price", 12, 2);
+			$table->decimal("total_purchase_price", 12, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 		});
 	}
