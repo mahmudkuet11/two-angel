@@ -30,19 +30,26 @@ class ProductController extends BaseController{
 	public function getSearchProduct(){
 		return View::make('partials.search_product');
 	}
-
 	public function getProductByCategory($category){
+		$res = DB::table('categories')->select(DB::raw('name, quantity,
+					  purchase_price, sell_price'))
+					->where('name', '=', $category)
+                    ->get();
+        return json_encode($res);
+
+	}
+/*	public function getProductByCategory($category){
 		$res = DB::table('categories')->select(DB::raw('barcode, category, unit'))
 					->where('category', '=', $category)->get();
         return json_encode($res);
 
-	}
-	public function getProductByBarcode($barcode){
+	}*/
+	/*public function getProductByBarcode($barcode){
 		$res = DB::table('categories')->select(DB::raw('barcode, category, unit'))
 				->where('barcode', '=', $barcode)->get();
         return json_encode($res);
 
-	}
+	}*/
 	/*public function postEditProduct(){
 		DB::table('products')
             ->where('category', '=', Input::get('category'))
