@@ -23,9 +23,7 @@
 								<table class="table table-striped table-hover ">
 								  <thead>
 									<tr>
-									  <th>Date</th>
 									  <th>Name</th>
-									  <th>Supplier</th>
 									  <th>Purchase price</th>
 									  <th>Sell price</th>
 									  <th>quantity</th>
@@ -60,9 +58,8 @@
 						for(index in data){
 
 							found = true;
-							var date = data[index].date.split("-");
 
-							$("#reaminig_products_report").append('<tr><td>'+ date[2] + '-' + date[1] + '-' + date[0] +'</td><td>'+ data[index].category + '</td><td>'+ data[index].suppllier + '</td><td>'+ data[index].purchase_price + '</td><td>'+ data[index].sell_price + '</td><td>'+ data[index].quantity + '</td></tr>');
+							$("#reaminig_products_report").append('<tr><td>'+ data[index].name + '</td><td>'+ data[index].purchase_price + '</td><td>'+ data[index].sell_price + '</td><td>'+ data[index].quantity + '</td></tr>');
 
 						}
 

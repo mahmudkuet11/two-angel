@@ -84,21 +84,13 @@ class ReportController extends BaseController{
 				/*$sDate 			=	Input::get('start_date');
 				$eDate    		=  Input::get('end_date');*/
 
-				return DB::table('products')
+				return DB::table('categories')
 				 ->select(DB::raw(
-				 	'category,
-				 	suppllier,
+				 	'name,
 				 	purchase_price,
 				 	sell_price,
-				 	COUNT(*) as quantity,
-				 	CAST(date AS DATE) as date'
-					 ))
-				->groupBy('category')
-				->groupBy('purchase_price')
-				->groupBy('sell_price')
-				->groupBy('suppllier')
-				->groupBy(DB::raw('CAST(date AS DATE)'))
-				->get();
+				 	quantity'
+					 ))->get();
 		}
 		public function getCategoryReport(){
 				return DB::table('categories')
