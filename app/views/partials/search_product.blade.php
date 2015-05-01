@@ -28,10 +28,8 @@
 								<table class="table table-striped table-hover ">
 								  <thead>
 									<tr>
-									  <th>Date</th>
 									  <th>Product Category</th>
 									  <th>Remaining Quantity</th>
-									  <th>Supplier</th>
 									  <th>Purchase Price</th>
 									  <th>Sell Price</th>
 									  <th>Edit</th>
@@ -138,19 +136,13 @@
 				var obj1 = $(obj).closest("tr");
 				option.category = $(".category", obj1).html();
 
-				var date = $(".date", obj1).html().split(" ");
-				option.date = date[0];
-				console.log(option.date);
 				option.purchase_price = $(".purchase_price", obj1).html();
 				option.sell_price = $(".sell_price", obj1).html();
-				console.log(option);
 				$("#modal_product_details p").html(option.category);
-				$("#modal_product_details small").html(option.date);
 
 				$("#inputPurchasePrice").val(option.purchase_price);
 				$("#inputSellPrice").val(option.sell_price);
 
-				console.log(option);
 			}
 
 			$("#update_product_save_button").click(function(){
@@ -167,7 +159,6 @@
 
 					option.purchase_price = $("#inputPurchasePrice").val();
 					option.sell_price = $("#inputSellPrice").val();
-
 					$.post("{{ URL::route('postEditProduct') }}", option, function(data){
 						if(data == 'Success'){
 							location.reload();
