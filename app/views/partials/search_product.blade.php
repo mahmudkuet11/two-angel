@@ -105,7 +105,7 @@
 						var found = false;
 						for(res in results){
 							found = true;
-							$("#display_product_search_result").append('<tr><td class="date">'+ results[res].date +'</td><td class="category">'+ results[res].category +'</td><td>'+ results[res].quantity +'</td><td>'+ results[res].suppllier +'</td><td class="purchase_price">'+ results[res].purchase_price +'</td><td class="sell_price">'+ results[res].sell_price +'</td><td><a href="#" class="product_edit_button" onclick="edit_product_button_click_handler(this)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td></tr>');
+							$("#display_product_search_result").append('<tr><td class="category">'+ results[res].name +'</td><td>'+ results[res].quantity +'</td><td class="purchase_price">'+ results[res].purchase_price +'</td><td class="sell_price">'+ results[res].sell_price +'</td><td><a href="#" class="product_edit_button" onclick="edit_product_button_click_handler(this)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td></tr>');
 
 
 
