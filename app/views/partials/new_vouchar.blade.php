@@ -189,7 +189,7 @@
 					var barcode = $('#inputBarCode').val();
 					if(e.keyCode == 13){
 
-						var found = false;
+						/*var found = false;
 						$("#barcode_list span").each(function(index){
 							if($(this).html() == $("#inputBarCode").val()){
 								found = true;
@@ -200,7 +200,7 @@
 							alert("already you have added this product");
 							$("#inputBarCode").val("");
 							return;
-						}
+						}*/
 
 						$("#inputBarCode").val("");
 
