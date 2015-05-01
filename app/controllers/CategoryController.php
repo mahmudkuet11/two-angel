@@ -13,6 +13,7 @@ class CategoryController extends BaseController{
 		$warning_quantity = Input::get("warning_quantity");
 		$purchase_price = Input::get("purchase_price");
 		$sell_price = Input::get("sell_price");
+		$unit = Input::get("unit");
 		
 		DB::table('categories')->insert(
    			 array(
@@ -21,7 +22,8 @@ class CategoryController extends BaseController{
    			 	'warning_quantity'		=> $warning_quantity,
    			 	'barcode'				=> $barcode,
    			 	'purchase_price'		=> $purchase_price,
-   			 	'sell_price'			=> $sell_price
+   			 	'sell_price'			=> $sell_price,
+   			 	'unit'					=>$unit
    			 	)
 		);
 
