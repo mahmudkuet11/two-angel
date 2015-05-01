@@ -13,7 +13,6 @@ class CreateCategoriesTable extends Migration {
 	public function up()
 	{
 		Schema::create("categories", function($table){
-
 			$table->string("barcode");
 			$table->string("name");
 			$table->string("manufacturer");

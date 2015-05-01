@@ -7,15 +7,21 @@ class CategoryController extends BaseController{
 	}
 
 	public function postAddNewCategory(){
+       $barcode = Input::get("barcode");
 		$name = Input::get("name");
 		$manufacturer = Input::get("manufacturer");
 		$warning_quantity = Input::get("warning_quantity");
+		$purchase_price = Input::get("purchase_price");
+		$sell_price = Input::get("sell_price");
 		
 		DB::table('categories')->insert(
    			 array(
    			 	'name'					=> $name, 
    			 	'manufacturer'			=> $manufacturer,
-   			 	'warning_quantity'		=> $warning_quantity
+   			 	'warning_quantity'		=> $warning_quantity,
+   			 	'barcode'				=> $barcode,
+   			 	'purchase_price'		=> $purchase_price,
+   			 	'sell_price'			=> $sell_price
    			 	)
 		);
 
