@@ -66,11 +66,12 @@ class VoucherController extends BaseController{
 		$total_purchase = 0.00;
 	
 	  foreach ($barcode_list as $barcode) {
-			$info = DB::table('categories')->select('sell_price', 'purchase_price', 'name')->where('barcode', '=', $barcode)->get()[0];
+			$info = DB::table('categories')->select('sell_price', 'purchase_price', 'name')->where('barcode', '=', $barcode->barcode)->get()[0];
 			DB::table('orders')->insert(array(
 					'voucher_id'	 => $voucher_id,
-					 'barcode'		 => $barcode, 
+					 'barcode'		 => $barcode->barcode, 
 					 'category'		=> $info->name,
+					 'quantity'		=> $barcode->quantity,
 					 'price' 		=> $info->sell_price)
 				);
 			$old =  DB::table('categories')->select('quantity')
@@ -78,7 +79,7 @@ class VoucherController extends BaseController{
 			$total_purchase = $total_purchase+ $info->purchase_price;
 
 			DB::table('categories')->where('name', $info->name)
-               ->update(array('quantity' => $old->quantity-1));
+               ->update(array('quantity' => $old->quantity-$barcode->quantity));
 		}	
 		 DB::table('vouchers')->insert(array(
 					 'id'					 => $voucher_id,

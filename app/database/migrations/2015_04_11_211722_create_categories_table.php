@@ -19,8 +19,8 @@ class CreateCategoriesTable extends Migration {
 			$table->integer("quantity")->default(0);
 			$table->integer("warning_quantity");
 			$table->string("unit");
-			$table->decimal("purchase_price", 6, 2);
-			$table->decimal("sell_price", 6, 2);
+			$table->decimal("purchase_price", 12, 2);
+			$table->decimal("sell_price", 12, 2);
 			$table->primary('barcode');
 		});
 	}

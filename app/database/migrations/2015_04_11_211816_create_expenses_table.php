@@ -16,7 +16,7 @@ class CreateExpensesTable extends Migration {
 			$table->increments("id");
 			$table->string("name");
 			$table->string("note");
-			$table->decimal("amount", 6, 2);
+			$table->decimal("amount", 12, 2);
 			$table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
 		});
 	}
