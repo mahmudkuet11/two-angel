@@ -27,6 +27,28 @@
 									</div>
 
 									<div class="form-group">
+									  <label for="inputBarcode" class="col-md-2 control-label">Barcode</label>
+									  <div class="col-md-10">
+										<input type="text" name="barcode" class="form-control" id="inputBarcode" placeholder="Enter Barcode">
+									  </div>
+									</div>
+
+									<div class="form-group">
+									  <label for="inputPurchasePrice" class="col-md-2 control-label">Purchase price</label>
+									  <div class="col-md-10">
+										<input type="number" name="purchase_price" class="form-control" id="inputPurchasePrice" placeholder="Enter purchase price">
+									  </div>
+									</div>
+
+									<div class="form-group">
+									  <label for="inputSellPrice" class="col-md-2 control-label">Sell price</label>
+									  <div class="col-md-10">
+										<input type="number" name="sell_price" class="form-control" id="inputSellPrice" placeholder="Enter sell price">
+									  </div>
+									</div>
+
+
+									<div class="form-group">
 									  <label for="inputManufacturer" class="col-md-2 control-label">Manufacturer</label>
 									  <div class="col-md-10">
 										<input type="text" name="manufacturer" class="form-control" id="inputManufacturer" placeholder="Enter Manufacturer Name">
