@@ -18,7 +18,6 @@ class CreateCategoriesTable extends Migration {
 			$table->string("manufacturer");
 			$table->integer("quantity")->default(0);
 			$table->integer("warning_quantity");
-			$table->string("suppllier");
 			$table->string("unit");
 			$table->decimal("purchase_price", 6, 2);
 			$table->decimal("sell_price", 6, 2);
