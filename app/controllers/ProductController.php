@@ -50,17 +50,18 @@ class ProductController extends BaseController{
         return json_encode($res);
 
 	}*/
-	/*public function postEditProduct(){
-		DB::table('products')
-            ->where('category', '=', Input::get('category'))
-            ->whereBetween('date', array(Input::get('date'), Input::get('date')." "."23:59:59"))
+	public function postEditProduct(){
+		$name = Input::get("category");
+		$purP = Input::get("purchase_price");
+		$sellP = Input::get("sell_price");
+		DB::table('categories')
+            ->where('name', '=', $name)
             ->update(array(
-            	'purchase_price'	 => Input::get('purchase_price'),
-            	 'sell_price'		 => Input::get('sell_price')
+            	'purchase_price'	 => $purP,
+            	 'sell_price'		 => $sellP
             	 ));
             return "Success";
-
-	}*/
+	}
 
 
 }
