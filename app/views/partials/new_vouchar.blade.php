@@ -112,12 +112,19 @@
 							<div class="panel-body">
 								
 									<div class="form-group">
+									  <label for="inputQuantity" class="col-md-2 control-label">Quantity</label>
+									  <div class="col-md-10">
+										<input type="text" class="form-control" id="inputQuantity" placeholder="Enter quantity" value="1">
+									  </div>
+									</div>
+
+									<div class="form-group">
 									  <label for="inputBarCode" class="col-md-2 control-label">Bar Code</label>
 									  <div class="col-md-10">
 										<input type="text" class="form-control" id="inputBarCode" placeholder="Product Bar Code">
 									  </div>
 									</div>
-								<table class="table table-striped table-hover ">
+								<table class="table table-striped table-hover">
 								  <thead>
 									<tr>
 									  <th>#</th>
@@ -175,6 +182,7 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 
+				var barcode_list = [];
 
 				$("#final_invoice").hide();
 
@@ -187,20 +195,9 @@
 				$("#inputBarCode").keydown(function(e){
 
 					var barcode = $('#inputBarCode').val();
+					var quantity = $('#inputQuantity').val();
 					if(e.keyCode == 13){
 
-						/*var found = false;
-						$("#barcode_list span").each(function(index){
-							if($(this).html() == $("#inputBarCode").val()){
-								found = true;
-							}
-						});
-
-						if(found){
-							alert("already you have added this product");
-							$("#inputBarCode").val("");
-							return;
-						}*/
 
 						$("#inputBarCode").val("");
 
@@ -208,15 +205,30 @@
 
 								$("#barcode_list").append('<span>'+ data[0].barcode +'</span>');
 
+								var list;
+								var barcode_found = false;
+								for(list in barcode_list){
+									if(barcode_list[list].barcode == data[0].barcode){
+										barcode_found = true;
+										barcode_list[list].quantity += quantity;
+									}
+								}
+								if(!barcode_found){
+									barcode_list.push({barcode:data[0].barcode,quantity:quantity});
+								}
+
+								
+								
+
 								var found = false;
 
 								$("#cart tr").each(function(index){
-									//console.log($(".category", this).html()); return;
+									
 									if($(".category", this).html() == data[0].name){
 										found = true;
-										total += parseFloat(data[0].sell_price);
+										total += parseFloat(data[0].sell_price * quantity);
 										qty = $('.quantity', this).html();
-										$('.quantity', this).html( parseInt(qty) + 1 );
+										$('.quantity', this).html( parseInt(qty) + parseInt(quantity) );
 
 
 									}
@@ -226,15 +238,14 @@
 
 								if(found == false){
 									count++;
-									total += parseFloat(data[0].sell_price);
-									$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].name +'</td><td class="quantity">1</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">1</span></td></tr>');
+									total += parseFloat(data[0].sell_price * quantity);
+									$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].name +'</td><td class="quantity">'+ quantity +'</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">'+ quantity +'</span></td></tr>');
 								}
 
 								$('#total_price').html(total);
 
 								$("#inputPaid").val(total);
 								$("#inputDiscount").val(0);
-
 
 						});
 					}
@@ -290,7 +301,7 @@
 					
 
 					var vouchar = {};
-					var barcode_list 	= [];
+					//var barcode_list 	= [];
 					var name 			= $("#inputName").val();
 					var phone 			= $("#inputPhone").val();
 					var address			= $("#inputAddress").val();
@@ -298,9 +309,9 @@
 					var discount 		= $("#inputDiscount").val();
 					var paid 			= $("#inputPaid").val();
 					var due 			= $("#inputDue").val();
-					$("#barcode_list span").each(function(index){
+					/*$("#barcode_list span").each(function(index){
 						barcode_list.push($(this).html());
-					});
+					});*/
 					vouchar.name 			= name;
 					vouchar.phone 			= phone;
 					vouchar.address 		= address;
@@ -310,6 +321,7 @@
 					vouchar.discount 		= discount;
 					vouchar.paid 			= paid;
 					vouchar.due 			= due;
+					console.log(vouchar);
 					
 					$.post("{{ URL::route('postConfirmVoucher') }}", vouchar, function(data){
 						
