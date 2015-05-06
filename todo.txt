@@ -1,3 +1,4 @@
 1. font install
-3. vouchar javascript get rout should be changed
-6. password change
+
+
+add new products when barcode scan auto category

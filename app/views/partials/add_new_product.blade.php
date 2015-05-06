@@ -88,23 +88,24 @@
 						return;
 					}
 
-					if($("#inputSupplier").val() == ""){
-						alert("Please select a supplier");
-						return;
-					}
-
-					if($("#inputPrice").val() == ""){
-						alert("Please enter purchase price");
-						return;
-					}
-
-					if($("#inputRate").val() == ""){
-						alert("Please enter sell price");
-						return;
-					}
 
 					$("#add_new_product_form").submit();
 					
+				});
+
+				$("#inputBarCode").keydown(function(e){
+					if(e.keyCode == 13){
+						$.get("{{ URL::route('getCategoryFromBarcode') }}", {barcode:$("#inputBarCode").val()}, function(data){
+							$("#inputProductCategory").val(data);
+						});
+					}
+				});
+
+				$("#inputProductCategory").on("change", function(){
+					
+					$.get("{{ URL::route('getBarcodeFromCategory') }}", {category:$(this).val()}, function(data){
+							$("#inputBarCode").val(data);
+					});
 				});
 
 

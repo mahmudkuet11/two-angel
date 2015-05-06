@@ -114,7 +114,7 @@
 									<div class="form-group">
 									  <label for="inputQuantity" class="col-md-2 control-label">Quantity</label>
 									  <div class="col-md-10">
-										<input type="text" class="form-control" id="inputQuantity" placeholder="Enter quantity" value="1">
+										<input type="number" class="form-control" id="inputQuantity" placeholder="Enter quantity" value="1">
 									  </div>
 									</div>
 
@@ -210,12 +210,14 @@
 								for(list in barcode_list){
 									if(barcode_list[list].barcode == data[0].barcode){
 										barcode_found = true;
-										barcode_list[list].quantity += quantity;
+										barcode_list[list].quantity += parseFloat(quantity);
 									}
 								}
 								if(!barcode_found){
-									barcode_list.push({barcode:data[0].barcode,quantity:quantity});
+									barcode_list.push({barcode:data[0].barcode,quantity:parseFloat(quantity)});
 								}
+
+								console.log(barcode_list);
 
 								
 								
@@ -228,7 +230,7 @@
 										found = true;
 										total += parseFloat(data[0].sell_price * quantity);
 										qty = $('.quantity', this).html();
-										$('.quantity', this).html( parseInt(qty) + parseInt(quantity) );
+										$('.quantity', this).html( parseFloat(qty) + parseFloat(quantity) );
 
 
 									}
@@ -239,7 +241,7 @@
 								if(found == false){
 									count++;
 									total += parseFloat(data[0].sell_price * quantity);
-									$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].name +'</td><td class="quantity">'+ quantity +'</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> * <span class="quantity">'+ quantity +'</span></td></tr>');
+									$("#cart").append('<tr><td class="sl_no">'+ count +'</td><td class="category">'+ data[0].name +'</td><td class="quantity">'+ quantity +'</td><td class="price"><span class="unit_price">'+ data[0].sell_price +'</span> X <span class="quantity">'+ quantity +'</span></td></tr>');
 								}
 
 								$('#total_price').html(total);

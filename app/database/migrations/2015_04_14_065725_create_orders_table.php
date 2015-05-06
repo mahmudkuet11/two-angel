@@ -16,8 +16,8 @@ class CreateOrdersTable extends Migration {
 			$table->string("voucher_id");
 			$table->string("barcode");
 			$table->string("category");
-			$table->decimal('quantity', 12, 3);
-			$table->decimal("price", 12, 2);
+			$table->decimal('quantity', 13, 3);
+			$table->decimal("price", 13, 3);
 		});
 	}
 

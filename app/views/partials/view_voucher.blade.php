@@ -49,7 +49,8 @@
 									<tr>
 									  <th>Barcode</th>
 									  <th>Product Name</th>
-									  <th>Price</th>
+									  <th>Quantity</th>
+									  <th>Unit Price</th>
 									</tr>
 								  </thead>
 								  <tbody id="product_details_view_vouchar_page">
@@ -122,7 +123,7 @@
 
 					$("#product_details_view_vouchar_page").html("");
 					for(index in voucher_details.products_details){
-						$("#product_details_view_vouchar_page").append('<tr><td>'+ voucher_details.products_details[index].barcode +'</td><td>'+ voucher_details.products_details[index].category +'</td><td>'+ voucher_details.products_details[index].price +'</td></tr>');
+						$("#product_details_view_vouchar_page").append('<tr><td>'+ voucher_details.products_details[index].barcode +'</td><td>'+ voucher_details.products_details[index].category +'</td><td>'+ parseInt(voucher_details.products_details[index].quantity) +'</td><td>'+ voucher_details.products_details[index].price +'</td></tr>');
 					}
 				});
 

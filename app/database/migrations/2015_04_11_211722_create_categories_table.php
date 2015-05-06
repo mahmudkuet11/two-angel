@@ -16,11 +16,11 @@ class CreateCategoriesTable extends Migration {
 			$table->string("barcode");
 			$table->string("name")->unique();;
 			$table->string("manufacturer");
-			$table->integer("quantity")->default(0);
-			$table->integer("warning_quantity");
+			$table->decimal("quantity",12,2)->default(0);
+			$table->decimal("warning_quantity",12,2);
 			$table->string("unit");
-			$table->decimal("purchase_price", 12, 2);
-			$table->decimal("sell_price", 12, 2);
+			$table->decimal("purchase_price", 13, 3);
+			$table->decimal("sell_price", 13, 3);
 			$table->primary('barcode');
 		});
 	}

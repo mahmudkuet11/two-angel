@@ -94,10 +94,6 @@
 						return;
 					}
 
-					if($("#inputManufacturer").val() == ""){
-						alert("please enter manufacturer name");
-						return;
-					}
 
 					if($("#inputWarningQty").val() == ""){
 						alert("please enter warning quantity");

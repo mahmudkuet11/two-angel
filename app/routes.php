@@ -97,6 +97,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'getLowStockCategory',
 			'uses'	=>	'CategoryController@getLowStockCategory'
 		));
+	Route::get('/category-from-barcode', array(
+			'as'	=>	'getCategoryFromBarcode',
+			'uses'	=>	'CategoryController@getCategoryFromBarcode'
+		));
+	Route::get('/barcode-from-category', array(
+			'as'	=>	'getBarcodeFromCategory',
+			'uses'	=>	'CategoryController@getBarcodeFromCategory'
+		));
 
 	/*
 	*	----- Supplier Controller Routes

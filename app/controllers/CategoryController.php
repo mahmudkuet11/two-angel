@@ -34,4 +34,17 @@ class CategoryController extends BaseController{
 		return View::make('partials.low_stock');
 	}
 
+	public function getCategoryFromBarcode(){
+		$barcode = Input::get('barcode');
+
+		$res = DB::table('categories')->where('barcode',$barcode)->first();
+
+		return $res->name;
+	}
+	public function getBarcodeFromCategory(){
+		$category = Input::get('category');
+		$res = DB::table('categories')->where('name',$category)->first();
+		return $res->barcode;
+	}
+
 }

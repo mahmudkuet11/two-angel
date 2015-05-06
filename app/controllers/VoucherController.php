@@ -101,7 +101,7 @@ class VoucherController extends BaseController{
 		 	->select('id', 'customer_name', 'address', 'phone', 'total_price', 'discount', 'paid')
 			 ->where('id', '=', $voucher_id)->first();
 
-		$prds = DB::table('orders')->select('barcode', 'category', 'price')->where('voucher_id', '=', $voucher_id)->get();
+		$prds = DB::table('orders')->select('barcode', 'category', 'quantity', 'price')->where('voucher_id', '=', $voucher_id)->get();
 		$info->products_details = $prds;
 		return json_encode($info);
 	}
