@@ -281,10 +281,10 @@
 				*/
 				$("#generate_vouchar").click(function(){
 
-					if($("#inputName").val() == ""){
+					/*if($("#inputName").val() == ""){
 						alert("please enter customer's name");
 						return;
-					}
+					}*/
 
 					var pattern = /[0-9]/;
 					if(!pattern.test($("#inputDiscount").val())){
@@ -351,7 +351,7 @@
 							var date = timestamp.toLocaleDateString() + " -- Time: " + timestamp.getHours() + ":" + timestamp.getMinutes() + ":" + timestamp.getSeconds();
 							$("#final_voucher_date").html(date);
 							$("#invoice_customer_name").html($("#inputName").val());
-							//setTimeout(function(){ window.print(); }, 1000);
+							setTimeout(function(){ window.print(); }, 3000);
 
 
 						}
