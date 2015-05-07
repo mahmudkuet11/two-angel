@@ -2,7 +2,7 @@
 
 @section('content')
 
-		<div class="container">
+		<div class="container" id="pos-paid">
 			<div class="add_new_product_area">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
@@ -351,8 +351,12 @@
 							var date = timestamp.toLocaleDateString() + " -- Time: " + timestamp.getHours() + ":" + timestamp.getMinutes() + ":" + timestamp.getSeconds();
 							$("#final_voucher_date").html(date);
 							$("#invoice_customer_name").html($("#inputName").val());
-							setTimeout(function(){ window.print(); }, 3000);
 
+							$("#print_btn").click();
+							setTimeout(function(){
+								location.reload();
+							}, 1000);
+							
 
 						}
 					});
