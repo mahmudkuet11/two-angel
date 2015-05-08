@@ -7,21 +7,27 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
-								
 								<form class="form-horizontal">
 								  <fieldset>
-									<legend>Enter Number of Barcode</legend>
+									<legend>Barcode Generation</legend>
 								  </fieldset>
 								  <div class="form-group">
-									  <label for="inputTaka" class="col-md-2 control-label">BDT</label>
+
+									  <label for="inputText" class="col-md-2 control-label">Barcode</label>
 									  <div class="col-md-10">
-										<input type="text" name="name" class="form-control" id="inputTaka" placeholder="Enter amount in BDT">
+										<input type="text" name="text" class="form-control" id="inputText" placeholder="Enter Barcode Text for Product">
 									  </div>
 								   </div>
-								  <div class="form-group">
-									  <label for="inputNum" class="col-md-2 control-label">Barcode Number</label>
+								   <div class="form-group">
+									  <label for="inputPrice" class="col-md-2 control-label">Price</label>
 									  <div class="col-md-10">
-										<input type="text" name="name" class="form-control" id="inputNum" placeholder="Enter Number of Barcode">
+										<input type="text" name="price" class="form-control" id="inputPrice" placeholder="Enter Product Price">
+									  </div>
+								   </div>
+								   <div class="form-group">
+									  <label for="inputNum" class="col-md-2 control-label">Total Barcode</label>
+									  <div class="col-md-10">
+										<input type="text" name="num" class="form-control" id="inputNum" placeholder="Enter Number of Barcode">
 									  </div>
 								   </div>
 								   <div class="form-group">
@@ -30,7 +36,6 @@
 									  </div>
 									</div>
 								</form>
-
 							</div>
 						</div>
 					</div>
@@ -56,32 +61,20 @@
 
 			$("#show_barcode_btn").click(function(){
 				var num = $("#inputNum").val();
-				var bdt = $("#inputTaka").val();
-				var date = new Date();
-				var barcode = date.getTime();
+				var price = $("#inputPrice").val();
+				var text = $("#inputText").val();
+					//var date = new Date();
+				//var barcode = date.getTime();
 
+
+				$(".all_barcode").html("");
 				for(i = 0; i < num; i++){
-					//new_barcode = barcode + i;
-					new_barcode = barcode;
-					
-					var str = new_barcode + '';
-					console.log(str);
-					str = str[5]+str[6]+str[7]+str[8]+str[9]+str[10]+str[11]+str[12];
+					//$(".all_barcode").append('<section ');
 					//console.log(str);
-					//$(".all_barcode").append('<img style="float:left;margin-right:20px;margin-bottom:20px;" src="http://localhost/ta/barcode/test_1D.php?barcode='+ str +'" /><span>BDT: <span>500</span></span>');
-					$(".all_barcode").append('<div class="single_barcode" style="text-align:center;float:left;margin-right:20px;margin-bottom:20px"><div class="image"><img src="http://localhost/ta/barcode/test_1D.php?barcode='+ str +'" /></div><div class="taka">BDT: <span>'+ bdt +'</span></div></div>');
-
-
-/*
-<div class="single_barcode" style="text-align:center;float:left">
-	<div class="image">
-		<img src="barcode.png" />
-	</div>
-	<div class="taka">
-		BDT: <span>500</span>
-	</div>
-</div>
-*/
+					//$(".all_barcode").append('><label>Price: 2.56 BDT</label><br/><br/>');
+					$(".all_barcode").append('<div style="float:left;margin-right:20px;margin-bottom:20px"> <span style="font-size:.8em;">Price:'+price+" BDT</span><br/>"+
+						'<img  src="http://localhost/ta/barcode/test_1D.php?barcode='+ text +'" /></div>');
+				
 				}
 			});
 
