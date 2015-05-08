@@ -13,6 +13,12 @@
 									<legend>Enter Number of Barcode</legend>
 								  </fieldset>
 								  <div class="form-group">
+									  <label for="inputTaka" class="col-md-2 control-label">BDT</label>
+									  <div class="col-md-10">
+										<input type="text" name="name" class="form-control" id="inputTaka" placeholder="Enter amount in BDT">
+									  </div>
+								   </div>
+								  <div class="form-group">
 									  <label for="inputNum" class="col-md-2 control-label">Barcode Number</label>
 									  <div class="col-md-10">
 										<input type="text" name="name" class="form-control" id="inputNum" placeholder="Enter Number of Barcode">
@@ -50,17 +56,32 @@
 
 			$("#show_barcode_btn").click(function(){
 				var num = $("#inputNum").val();
+				var bdt = $("#inputTaka").val();
 				var date = new Date();
 				var barcode = date.getTime();
 
 				for(i = 0; i < num; i++){
-					new_barcode = barcode + i;
-					//console.log(new_barcode);
+					//new_barcode = barcode + i;
+					new_barcode = barcode;
+					
 					var str = new_barcode + '';
 					console.log(str);
-					//str = str[5]+str[6]+str[7]+str[8]+str[9]+str[10]+str[11]+str[12];
+					str = str[5]+str[6]+str[7]+str[8]+str[9]+str[10]+str[11]+str[12];
 					//console.log(str);
-					$(".all_barcode").append('<img style="float:left;margin-right:20px;margin-bottom:20px" src="http://localhost/ta/barcode/test_1D.php?barcode='+ str +'" />');
+					//$(".all_barcode").append('<img style="float:left;margin-right:20px;margin-bottom:20px;" src="http://localhost/ta/barcode/test_1D.php?barcode='+ str +'" /><span>BDT: <span>500</span></span>');
+					$(".all_barcode").append('<div class="single_barcode" style="text-align:center;float:left;margin-right:20px;margin-bottom:20px"><div class="image"><img src="http://localhost/ta/barcode/test_1D.php?barcode='+ str +'" /></div><div class="taka">BDT: <span>'+ bdt +'</span></div></div>');
+
+
+/*
+<div class="single_barcode" style="text-align:center;float:left">
+	<div class="image">
+		<img src="barcode.png" />
+	</div>
+	<div class="taka">
+		BDT: <span>500</span>
+	</div>
+</div>
+*/
 				}
 			});
 
