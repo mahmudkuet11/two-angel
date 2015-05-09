@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration {
 			$table->string("barcode");
 			$table->string("category");
 			$table->decimal('quantity', 13, 3);
-			$table->decimal("price", 13, 3);
+			$table->decimal("price", 13, 2);
 		});
 	}
 

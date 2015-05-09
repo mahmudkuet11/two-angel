@@ -46,5 +46,19 @@ class CategoryController extends BaseController{
 		$res = DB::table('categories')->where('name',$category)->first();
 		return $res->barcode;
 	}
+	public function getPrice(){
+		if(Input::get('barcode')!=null){
+			$res = DB::table('categories')->where('barcode',Input::get('barcode'))->first();
+			return $res->sell_price;
+		}
+		if(Input::get('category')!=null){
+			$res = DB::table('categories')->where('name',Input::get('category'))->first();
+			return $res->sell_price;
+		}
+	}
+	public function getAllBarcodeAndPrice(){
+		$res = DB::table('categories')->select('barcode', 'sell_price')->get();
+			return json_encode($res);
+		}
 
 }

@@ -105,7 +105,14 @@ Route::group(array('before'	=>	'login_required'), function(){
 			'as'	=>	'getBarcodeFromCategory',
 			'uses'	=>	'CategoryController@getBarcodeFromCategory'
 		));
-
+	Route::get('/price-form-category-or-barcode', array(
+			'as'    => 'getPrice',
+			'uses'  => 'CategoryController@getPrice'
+	));
+	Route::get('/get-all-barcode-with-price', array(
+			'as'    => 'getAllBarcodeWithPrice',
+			'uses'  => 'CategoryController@getAllBarcodeAndPrice'
+	));
 	/*
 	*	----- Supplier Controller Routes
 	*/

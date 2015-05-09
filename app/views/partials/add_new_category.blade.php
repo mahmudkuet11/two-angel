@@ -29,7 +29,7 @@
 									<div class="form-group">
 									  <label for="inputBarcode" class="col-md-2 control-label">Barcode</label>
 									  <div class="col-md-10">
-										<input type="text" name="barcode" class="form-control" id="inputBarcode" placeholder="Enter Barcode">
+										<input type="text" name="barcode" class="form-control" id="inputBarcode" placeholder="Enter Barcode" value="">
 									  </div>
 									</div>
 
@@ -102,9 +102,31 @@
 
 					$("#add_new_category_form").submit();
 				});
+				$("#inputBarcode").focus(function(){
+					if($("#inputCategoryName").val() != ""){
+							var date = new Date();
+							var barcode = date.getTime();
+							var str = $("#inputCategoryName").val();
+							str = str.toUpperCase().substr(0, 3);
+							barcode = barcode+"";
+							str = str+ barcode.substr(2, 10);
+							$("#inputBarcode").val(str);
+						}
+				});
+				$("#inputBarCode").keydown(function(e){
+					if(e.keyCode == 13){
+						$.get("{{ URL::route('getCategoryFromBarcode') }}", {barcode:$("#inputBarCode").val()}, function(data){
+							$("#inputProductCategory").val(data);
+						});
+					}
+				});
 
-
-
+				$("#inputProductCategory").on("change", function(){
+					
+					$.get("{{ URL::route('getBarcodeFromCategory') }}", {category:$(this).val()}, function(data){
+							$("#inputBarCode").val(data);
+					});
+				});
 			});
 
 
